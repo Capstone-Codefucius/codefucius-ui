@@ -1,0 +1,12 @@
+diff a/src/styles.css b/src/styles.css	(rejected hunks)
+@@ -0,9 +0 @@
+ /* You can add global styles to this file, and also import other style files */
+-
+-/*use this to get rid of weird margins*/
+-body{
+-    background-color: #e2e1e1;
+-    margin: 0px;
+-    height: 100%;
+-    width: 100%;
+-}
+\ No newline at end of file

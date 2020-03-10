@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {MatCardModule, MatButtonModule} from '@angular/material'
 
 @Component({
   selector: 'app-reviewer',
@@ -13,3 +15,5 @@ export class ReviewerComponent implements OnInit {
   }
 
 }
+
+

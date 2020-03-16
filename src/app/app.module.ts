@@ -8,7 +8,14 @@ import { RevieweeComponent } from './reviewee/reviewee.component';
 import { ReviewerComponent } from './reviewer/reviewer.component';
 import { AdminComponent } from './admin/admin.component';
 import { ManagerComponent } from './manager/manager.component';
-import {MaterialModule} from './material';
+
+import { NavComponent } from './nav/nav.component';
+
+
+import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//custom class made for material
+import{MaterialModule} from './material';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +23,13 @@ import {MaterialModule} from './material';
     LoginComponent,
     RevieweeComponent,
     AdminComponent,
-    ManagerComponent
+    ManagerComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     MaterialModule
   ],
   providers: [],

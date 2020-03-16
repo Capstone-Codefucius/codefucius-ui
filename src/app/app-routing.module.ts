@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ReviewerComponent } from './reviewer/reviewer.component';
-import { AppComponent } from './app.component';
 
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent} from './login/login.component';
+import { ManagerComponent } from './manager/manager.component';
+import { RevieweeComponent} from './reviewee/reviewee.component';
+import { ReviewerComponent } from './reviewer/reviewer.component';
 
 const routes: Routes = [
-  {
-    path: '/reviewer',
-    component: ReviewerComponent,
-  },
-  {
-    path: '',
-    component: AppComponent,
-  }
+  { path: '', component: LoginComponent },
+  { path: 'manager', component: ManagerComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'reviewee', component: RevieweeComponent },
+  { path: 'reviewer', component: ReviewerComponent },
 ];
 
 @NgModule({

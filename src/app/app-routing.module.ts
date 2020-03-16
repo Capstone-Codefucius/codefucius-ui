@@ -7,7 +7,6 @@ import { ManagerComponent } from './manager/manager.component';
 import { RevieweeComponent} from './reviewee/reviewee.component';
 import { ReviewerComponent } from './reviewer/reviewer.component';
 
-//made changed 10/30
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'manager', component: ManagerComponent },

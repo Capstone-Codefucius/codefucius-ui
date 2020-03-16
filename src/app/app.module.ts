@@ -8,6 +8,8 @@ import { RevieweeComponent } from './reviewee/reviewee.component';
 import { ReviewerComponent } from './reviewer/reviewer.component';
 import { AdminComponent } from './admin/admin.component';
 import { ManagerComponent } from './manager/manager.component';
+import { NavComponent } from './nav/nav.component';
+
 
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import{MaterialModule} from './material';
@@ -19,7 +21,8 @@ import{MaterialModule} from './material';
     RevieweeComponent,
     ReviewerComponent,
     AdminComponent,
-    ManagerComponent
+    ManagerComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

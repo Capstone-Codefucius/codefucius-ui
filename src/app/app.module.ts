@@ -12,7 +12,10 @@ import { NavComponent } from './nav/nav.component';
 
 
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//custom class made for material
 import{MaterialModule} from './material';
+
+
 
 @NgModule({
   declarations: [

@@ -8,6 +8,11 @@ import { RevieweeComponent } from './reviewee/reviewee.component';
 import { ReviewerComponent } from './reviewer/reviewer.component';
 import { AdminComponent } from './admin/admin.component';
 import { ManagerComponent } from './manager/manager.component';
+import { NavComponent } from './nav/nav.component';
+
+
+import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import{MaterialModule} from './material';
 
 @NgModule({
   declarations: [
@@ -16,11 +21,14 @@ import { ManagerComponent } from './manager/manager.component';
     RevieweeComponent,
     ReviewerComponent,
     AdminComponent,
-    ManagerComponent
+    ManagerComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

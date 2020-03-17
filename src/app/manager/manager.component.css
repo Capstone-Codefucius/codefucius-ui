@@ -1,7 +1,6 @@
 #employeeBox {
     position: absolute;
     margin-left: 5%;
-    margin-right: 5%;
     width: 90%;
     background-color: #673ab7;
 }
@@ -22,7 +21,6 @@ p{
 
 table {
     position: relative;
-    margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 7%;
     width: 75%;

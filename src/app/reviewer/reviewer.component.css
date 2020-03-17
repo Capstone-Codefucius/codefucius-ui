@@ -1,0 +1,46 @@
+.reviewer-card, .reviewer-card2, .reviewer-card3, .reviewer-card4 {
+max-width: 200px;
+max-height: 200 px;
+display: flex;
+flex-direction: column;
+flex: 1;
+margin: 3%;
+margin-top: 0px;
+}
+.reviewer-card:hover, .reviewer-card2:hover, .reviewer-card3:hover, .reviewer-card4:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+#cardBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+h1{
+    margin:3%;
+}
+
+p{
+    font-size: 25px;
+}
+
+.numbers{
+    margin-left:-15%;
+}
+
+button{
+    background: #673ab7;
+    width:5%;
+    height:8%;
+    position:fixed;
+    bottom: 5%;
+    right: 5%;
+}
+
+mat-card i{
+    margin-left: 80%;
+}
+

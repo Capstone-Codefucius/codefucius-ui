@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "codefucius-ui"
+  "defaultProject": "codefucius-ui",
+  "cli": {
+    "analytics": "515173a5-e98a-4943-b33d-9b0b7c0879d7"
+  }
 }

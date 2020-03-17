@@ -1,3 +1,38 @@
-<p>
-  admin works!
-</p>
+<html>
+  <h1 id="title">Welcome</h1>
+  <div id="userBox">
+
+    <mat-form-field id="searchBox" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John Smith">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef> Role </th>
+        <td mat-cell *matCellDef="let element">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label> {{element.role}} </mat-label>
+              <mat-select>
+                <mat-option value="reviewer"> Reviewer </mat-option>
+                <mat-option value="Reviewee"> Reviewee </mat-option>
+                <mat-option value="manager"> Manager </mat-option>
+                <mat-option value="admin"> Admin </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</html>

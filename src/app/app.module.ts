@@ -22,6 +22,7 @@ import{MaterialModule} from './material';
     AppComponent,
     LoginComponent,
     RevieweeComponent,
+    ReviewerComponent,
     AdminComponent,
     ManagerComponent,
     NavComponent

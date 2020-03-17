@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         MatCardModule,
         MatDialogModule,
         MatInputModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatTableModule
     ],
     exports: [
         MatButtonModule,
@@ -31,7 +33,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         MatCardModule,
         MatDialogModule,
         MatInputModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatTableModule
     ]
 })
 export class MaterialModule { }

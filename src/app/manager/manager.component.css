@@ -1,0 +1,29 @@
+#employeeBox {
+    position: absolute;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    background-color: #673ab7;
+}
+
+#searchBox {
+    margin-top: 2%;
+    position: relative;
+    margin-left: 10%;
+}
+
+h1{
+    margin:3%;
+}
+
+p{
+    font-size: 25px;
+}
+
+table {
+    position: relative;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 7%;
+    width: 75%;
+}

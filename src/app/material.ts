@@ -14,6 +14,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
+//feedback page
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
     imports: [
@@ -27,7 +30,8 @@ import { MatSelectModule } from '@angular/material/select';
         MatProgressSpinnerModule,
         MatTableModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+        MatRadioModule
     ],
     exports: [
         MatButtonModule,
@@ -40,7 +44,9 @@ import { MatSelectModule } from '@angular/material/select';
         MatProgressSpinnerModule,
         MatTableModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+
+        MatRadioModule
     ]
 })
 export class MaterialModule { }

@@ -1,3 +1,21 @@
+#awaitingChart{
+    background:#004d40;
+    height: 45%;
+    width: 40%;
+    position: absolute;
+    margin-left: 5%;
+    width: 90%;
+    background-color: #004d40;
+    /* display: none; */
+}
+
+#cardBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
 .reviewee-card, .reviewee-card2, .reviewee-card3, .reviewee-card4 {
     max-width: 200px;
     max-height: 200 px;
@@ -6,26 +24,21 @@
     flex: 1;
     margin: 3%;
     margin-top: 0px;
+    background-color: #80CBC4;
     }
-  
+
 .reviewee-card:hover, .reviewee-card2:hover, .reviewee-card3:hover, .reviewee-card4:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
+
 .amount{
     margin-left: -15%;
-    }
-    
-    #cardBox{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-    }
-    
+    } 
+
     h1{
         margin:3%;
     }
-    
+
     p{
         font-size: 25px;
     }
@@ -34,13 +47,22 @@
         margin-left: 80%;
     }
 
+    table {
+        position: relative;
+        margin-left: 12%;
+        margin-bottom: 7%;
+        margin-top: 2%;
+        width: 75%;
+    }
+
     button{
-        background: #673ab7;
+        background: #80CBC4;
         width:5%;
         height:8%;
         position:fixed;
         bottom: 5%;
         right: 5%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     mat-card-content{

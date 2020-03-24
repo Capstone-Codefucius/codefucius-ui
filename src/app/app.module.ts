@@ -15,6 +15,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //custom class made for material
 import { MaterialModule } from './material';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MaterialModule } from './material';
     AdminComponent,
     ManagerComponent,
     NavComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    DatepickerComponent
 
   ],
   imports: [

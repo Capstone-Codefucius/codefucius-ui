@@ -7,6 +7,8 @@ import { ManagerComponent } from './manager/manager.component';
 import { RevieweeComponent} from './reviewee/reviewee.component';
 import { ReviewerComponent } from './reviewer/reviewer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+
 
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'reviewee', component: RevieweeComponent },
   { path: 'reviewer', component: ReviewerComponent },
   { path: 'feedback', component: FeedbackComponent },
+  { path: 'datepicker', component: DatepickerComponent },
+
 
 ];
 

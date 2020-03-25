@@ -6,18 +6,20 @@
 
         <form class="feedback-form">
             <mat-form-field class="box-full-width">
-                <mat-label>Name of Reviewer</mat-label>
-                <input matInput placeholder="John Doe">
+                <mat-label >Name of Reviewer</mat-label>
+                <!-- binding -->
+                <input matInput name="rn" [(ngModel)]="reviewername" placeholder="John Doe">
             </mat-form-field>
-
-            <mat-form-field class="box-full-width">
-                <mat-label>Date of Review</mat-label>
-                <input type="mm/dd/yy" matInput placeholder="">
+            <mat-form-field class="dobContain">
+                <input matInput name="review-date" [(ngModel)]="reviewDate"  [matDatepicker]="datePicker" class="field" maxlength="30" type="text"
+                                   placeholder="Date of Review">
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
             </mat-form-field>
         </form>
 
         <label id="radio-question1"><br /><br />1. I learned something that I will use on another project.<br /></label>
-        <mat-radio-group aria-label="numbers">
+        <mat-radio-group name="q1" [(ngModel)]="question1"  aria-label="numbers">
             <mat-radio-button value="1">Poor </mat-radio-button>
             <mat-radio-button value="2"> Fair </mat-radio-button>
             <mat-radio-button value="3"> Good </mat-radio-button>
@@ -57,7 +59,7 @@
 
     <div class="button-row">
         <mat-card-actions>
-            <button mat-button>Submit</button>
+            <button mat-button (click)="submit()">Submit</button>
             <button mat-button>Cancel</button>
 
         </mat-card-actions>

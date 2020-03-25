@@ -9,6 +9,7 @@ import { ReviewerComponent } from './reviewer/reviewer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
 
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'manager', component: ManagerComponent },
@@ -16,7 +17,6 @@ const routes: Routes = [
   { path: 'reviewee', component: RevieweeComponent },
   { path: 'reviewer', component: ReviewerComponent },
   { path: 'feedback', component: FeedbackComponent },
-
 ];
 
 @NgModule({

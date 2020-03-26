@@ -91,8 +91,7 @@
               "src/assets"
             ],
             "styles": [
-              // "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -128,5 +127,10 @@
   "defaultProject": "codefucius-ui",
   "cli": {
     "analytics": "515173a5-e98a-4943-b33d-9b0b7c0879d7"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

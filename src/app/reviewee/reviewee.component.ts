@@ -21,7 +21,7 @@ const ELEMENT_DATA: AwaitingTable[] = [
 @Component({
   selector: 'app-reviewee',
   templateUrl: './reviewee.component.html',
-  styleUrls: ['./reviewee.component.css'],
+  styleUrls: ['./reviewee.component.scss'],
   
   animations: [ 
     trigger('openClose', [

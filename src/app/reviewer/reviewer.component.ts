@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-reviewer',
   templateUrl: './reviewer.component.html',
-  styleUrls: ['./reviewer.component.css']
+  styleUrls: ['./reviewer.component.scss']
 })
 export class ReviewerComponent implements OnInit {
 

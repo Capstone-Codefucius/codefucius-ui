@@ -10,7 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ManagerComponent } from './manager/manager.component';
 import { NavComponent } from './nav/nav.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-
+import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //custom class made for material
@@ -26,11 +26,13 @@ import { MaterialModule } from './material';
     AdminComponent,
     ManagerComponent,
     NavComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    
 
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule

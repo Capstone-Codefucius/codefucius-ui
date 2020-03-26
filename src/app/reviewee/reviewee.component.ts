@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
+import { NONE_TYPE } from '@angular/compiler';
 
 export interface AwaitingTable {
   projectName: string;
@@ -24,16 +26,13 @@ const ELEMENT_DATA: AwaitingTable[] = [
   animations: [ 
     trigger('openClose', [
       state('open', style({
-        opacity: 1,
+        maxHeight: 400,
       })),
       state('closed', style({
-        opacity: 0,
+        maxHeight: 0,
       })),
-      transition('open => closed', [
-        animate('0.5s')
-      ]),
-      transition('closed => open', [
-        animate('0.5s')
+      transition('open <=> closed', [
+        animate('0.2s')
       ]),
     ]),
   ],
@@ -48,6 +47,7 @@ export class RevieweeComponent implements OnInit {
   toggle() {
     this.isOpen = !this.isOpen;
   }
+
   constructor() { }
 
   ngOnInit() {

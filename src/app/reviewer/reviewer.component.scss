@@ -1,23 +1,40 @@
-.reviewer-card, .reviewer-card2, .reviewer-card3, .reviewer-card4 {
-max-width: 200px;
-max-height: 200 px;
-display: flex;
-flex-direction: column;
-flex: 1;
-margin: 3%;
-margin-top: 0px;
-}
-.reviewer-card:hover, .reviewer-card2:hover, .reviewer-card3:hover, .reviewer-card4:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+#awaitingChart{
+    background:#004d40;
+    height: 45%;
+    width: 40%; 
+    position: absolute; 
+    margin-left: 5%;
+    width: 90%;
+    background-color: #004d40;
+    overflow: hidden;
 }
 
-
-#cardBox{
+#cardBox {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
 }
+
+.reviewer-card {
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 3%;
+    margin-top: 0px;
+    background-color: #80CBC4;
+    cursor: pointer;
+    }
+
+.reviewer-card:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+.amount{
+    margin-left: -15%;
+} 
 
 h1{
     margin:3%;
@@ -27,20 +44,94 @@ p{
     font-size: 25px;
 }
 
-.numbers{
-    margin-left:-15%;
-}
-
-button{
-    background: #673ab7;
-    width:5%;
-    height:8%;
-    position:fixed;
-    bottom: 5%;
-    right: 5%;
-}
-
-mat-card i{
+.mat-card i{
     margin-left: 80%;
 }
 
+table {
+    position: relative;
+    margin-left: 12%;
+    margin-bottom: 7%;
+    margin-top: 2%;
+    width: 75%;
+}
+
+button{
+    background: #80CBC4;
+    width:5%;
+    height:8%;
+    position:fixed;
+    bottom: 4%;
+    right: 5%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.mat-card-content{
+    margin-left: 0%;
+}
+
+#reviewHoursForm{
+    background:#004d40;
+    height: 45%;
+    width: 40%; 
+    position: absolute; 
+    margin-left: 5%;
+    width: 90%;
+    background-color: #004d40;
+    overflow: hidden;
+}
+
+#hoursFormBox{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    height: 50%;
+    width: 100%;
+    margin-left: 10%;
+    margin-top: 2%;
+
+}
+
+#hoursForm{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    padding: 5%;
+    margin-top: -2%;
+    background: white;
+    height: 70%;
+    width: 75%;
+    margin-left: -3%;
+}
+
+#reviewHoursForm h1{
+    color: white;
+}
+
+
+
+.mat-button{
+   margin-right: 6%;
+   float: left;
+   cursor: pointer;
+   margin-bottom: 4%;
+   width: 12%;
+   position: absolute;
+   height: 12%;
+}
+
+.mat-form-field{
+    margin-left: 0%;
+}
+
+.mat-radio-group{
+    margin-right: 2%;
+}
+
+.dobContain{
+    margin-left: 2%;
+}
+
+.endTime{
+    margin-left: 5%;
+}

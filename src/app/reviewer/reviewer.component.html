@@ -1,7 +1,7 @@
 <html>
     <h1 id="title">Welcome</h1>
     <div id="cardBox">
-        <mat-card class="reviewer-card">
+        <mat-card class="reviewer-card" (click)="toggle()">
             <mat-card-header>
             <mat-card-content class="numbers">
                 <p><b>5</b></p>
@@ -13,7 +13,7 @@
             </i> 
         </mat-card>
   
-        <mat-card class="reviewer-card2">
+        <mat-card class="reviewer-card" (click)="toggle()">
             <mat-card-header>
             <mat-card-content class="numbers">
                 <p><b>4</b></p>
@@ -25,7 +25,7 @@
             </i> 
         </mat-card>
   
-        <mat-card class="reviewer-card3">
+        <mat-card class="reviewer-card" (click)="toggle()">
             <mat-card-header>
             <mat-card-content class="numbers">
                 <p><b>5</b></p>
@@ -37,7 +37,7 @@
             </i> 
         </mat-card>
 
-        <mat-card class="reviewer-card4">
+        <mat-card class="reviewer-card" (click)="toggle()">
             <mat-card-header>
             <mat-card-content class="numbers">
                 <p><b>10</b></p>
@@ -49,9 +49,72 @@
             </i> 
         </mat-card>
     </div>
-    <button mat-icon-button id="add">
+
+    <button mat-icon-button id="add" >
         <i class="material-icons">
             add
         </i>
     </button>
+
+    <div id = "awaitingChart" [@openClose]="isOpen ? 'open' : 'closed'">
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="projectName">
+            <th mat-header-cell *matHeaderCellDef> Project Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="requestTo">
+            <th mat-header-cell *matHeaderCellDef> Request To </th>
+            <td mat-cell *matCellDef="let element"> {{element.requestTo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef> Author </th>
+            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <div id = "reviewHoursForm" [@openClose]="isOpen ? 'open' : 'closed'" >
+        <h1>Add hours from completed code reviews</h1>
+        <div id="hoursFormBox">
+            <form id ="hoursForm">
+                <p>Start Time:</p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Start Time</mat-label>
+                    <input matInput>
+                    </mat-form-field>
+                <mat-radio-group aria-label="timeofday" class="radioGroup">
+                    <mat-radio-button value="1">AM</mat-radio-button> 
+                    <mat-radio-button value="2">PM</mat-radio-button>
+                </mat-radio-group>
+                <p class="endTime">End Time:</p>
+                <mat-form-field appearance="fill">
+                    <mat-label>End Time</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-radio-group aria-label="timeofday">
+                    <mat-radio-button value="1">AM</mat-radio-button>
+                    <mat-radio-button value="2">PM</mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field class="dobContain">
+                    <input matInput name="review-date" [(ngModel)]="reviewDate"  [matDatepicker]="datePicker" class="field" maxlength="30" type="text"
+                                    placeholder="Date of Review">
+                    <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datePicker></mat-datepicker>
+                </mat-form-field>
+                <button mat-button class="submitButton">Submit</button>
+            </form>
+        </div>
+    </div>
+
   </html>

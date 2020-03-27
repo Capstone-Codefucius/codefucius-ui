@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
-import { NONE_TYPE } from '@angular/compiler';
+
 
 export interface AwaitingTable {
   projectName: string;
@@ -19,7 +18,7 @@ const ELEMENT_DATA: AwaitingTable[] = [
 ];
 
 @Component({
-  selector: 'app-reviewee',
+  selector: 'app-reviewer',
   templateUrl: './reviewer.component.html',
   styleUrls: ['./reviewer.component.scss'],
   

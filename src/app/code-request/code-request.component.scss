@@ -1,0 +1,35 @@
+.request-card {
+    max-width: 750px;
+
+    width: 75%;
+    margin: 5% auto;
+}
+
+.request-form {
+    min-width: 250px;
+    max-width: 750px;
+    width: 100%;
+}
+      
+.box-full-width {
+    width: 50%;
+    padding: 3%;
+}
+
+.mat-radio-button ~ .mat-radio-button{
+    margin-left: 24px;
+  }
+
+.button-row button{
+   margin-right: 24px;
+   float: right;
+   cursor: pointer;
+}
+
+#Submit{
+    background: #80CBC4;
+}
+
+#Cancel{
+    background: #004d40;
+}

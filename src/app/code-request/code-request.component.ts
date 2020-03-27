@@ -4,14 +4,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-code-request',
   templateUrl: './code-request.component.html',
-  styleUrls: ['./code-request.component.css']
+  styleUrls: ['./code-request.component.scss']
 })
-export class CodeRequestComponent implements OnInit {
+export class RequestComponent implements OnInit {
   
   // binding
   reviewername : string;
   reviewDate: Date;
-    question1: number;
+  question1: number;
 
   /*constructor() { 
     this.reviewername = "test2"

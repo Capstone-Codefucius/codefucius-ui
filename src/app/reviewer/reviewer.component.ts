@@ -48,6 +48,10 @@ export class ReviewerComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
+  requestOpen(){
+
+  }
+  
   reviewername : string;
   reviewDate: Date;
   question1: number;

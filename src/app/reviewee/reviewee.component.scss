@@ -1,0 +1,71 @@
+#awaitingChart{
+    background:#004d40;
+    height: 45%;
+    width: 40%; 
+    position: absolute; 
+    margin-left: 5%;
+    width: 90%;
+    background-color: #004d40;
+    overflow: hidden;
+}
+
+#cardBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.reviewee-card {
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 3%;
+    margin-top: 0px;
+    background-color: #80CBC4;
+    cursor: pointer;
+    }
+
+.reviewee-card:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+.amount{
+    margin-left: -15%;
+    } 
+
+    h1{
+        margin:3%;
+    }
+
+    p{
+        font-size: 25px;
+    }
+
+    mat-card i{
+        margin-left: 80%;
+    }
+
+    table {
+        position: relative;
+        margin-left: 12%;
+        margin-bottom: 7%;
+        margin-top: 2%;
+        width: 75%;
+    }
+
+    button{
+        background: #80CBC4;
+        width:5%;
+        height:8%;
+        position:fixed;
+        bottom: 5%;
+        right: 5%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    mat-card-content{
+        margin-left: 0%;
+    }

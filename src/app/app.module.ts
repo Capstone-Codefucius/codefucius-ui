@@ -8,13 +8,13 @@ import { RevieweeComponent } from './reviewee/reviewee.component';
 import { ReviewerComponent } from './reviewer/reviewer.component';
 import { AdminComponent } from './admin/admin.component';
 import { ManagerComponent } from './manager/manager.component';
-
 import { NavComponent } from './nav/nav.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { FormsModule } from '@angular/forms';
 
-
-import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //custom class made for material
-import{MaterialModule} from './material';
+import { MaterialModule } from './material';
 
 
 @NgModule({
@@ -25,10 +25,14 @@ import{MaterialModule} from './material';
     ReviewerComponent,
     AdminComponent,
     ManagerComponent,
-    NavComponent
+    NavComponent,
+    FeedbackComponent,
+    
+
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule

@@ -18,7 +18,7 @@ const ELEMENT_DATA: ManagerTable[] = [
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
-  styleUrls: ['./manager.component.css']
+  styleUrls: ['./manager.component.scss']
 })
 export class ManagerComponent implements OnInit {
   displayedColumns: string[] = ['name', 'role', 'reviewHours', 'completedReviews'];

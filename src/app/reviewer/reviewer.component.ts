@@ -57,20 +57,12 @@ export class ReviewerComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   requestOpen(): void {
-    const dialogConfig = new MatDialogConfig();
+    const dialogRef = this.dialog.open(RequestComponent,{ panelClass: 'custom-dialog-container'});
 
-        dialogConfig.disableClose = true;
-        dialogConfig.autoFocus = true;
-
-        this.dialog.open(RequestComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+   });
   }
-  //requestOpen(): void {
-  //  const dialogRef = this.dialog.open(RequestComponent,{ panelClass: 'custom-dialog-container'});
-
-  //  dialogRef.afterClosed().subscribe(result => {
-  //    console.log('The dialog was closed');
-  //  });
-  //}
 
   ngOnInit() {
   }

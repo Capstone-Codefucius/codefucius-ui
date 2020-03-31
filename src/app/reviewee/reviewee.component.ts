@@ -42,10 +42,38 @@ export class RevieweeComponent implements OnInit {
   displayedColumns: string[] = ['projectName', 'dueDate', 'requestTo', 'author'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  isOpen = true;
+  reviewername : string;
+  reviewDate: Date;
+  question1: number;
 
-  toggle() {
-    this.isOpen = !this.isOpen;
+  isOpenAwait = false;
+  isOpenInProg = false;
+  isOpenComp = false;
+  reviewHours = false;
+
+  toggleAwait() {
+    this.isOpenInProg = false;
+    this.isOpenComp = false;
+    this.reviewHours = false;
+    this.isOpenAwait = !this.isOpenAwait;
+  }
+  toggleInProg() {
+    this.isOpenAwait = false;
+    this.isOpenComp = false;
+    this.reviewHours = false;
+    this.isOpenInProg = !this.isOpenInProg;
+  }
+  toggleComp() {
+    this.isOpenAwait = false;
+    this.isOpenInProg = false;
+    this.reviewHours = false;
+    this.isOpenComp = !this.isOpenComp;
+  }
+  toggleReview() {
+    this.isOpenAwait = false;
+    this.isOpenInProg = false;
+    this.isOpenComp = false;
+    this.reviewHours = !this.reviewHours;
   }
 
   constructor() { }

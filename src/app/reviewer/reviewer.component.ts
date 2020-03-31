@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
 
 export interface AwaitingTable {
@@ -57,12 +57,20 @@ export class ReviewerComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   requestOpen(): void {
-    const dialogRef = this.dialog.open(RequestComponent);
+    const dialogConfig = new MatDialogConfig();
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+
+        this.dialog.open(RequestComponent, dialogConfig);
   }
+  //requestOpen(): void {
+  //  const dialogRef = this.dialog.open(RequestComponent,{ panelClass: 'custom-dialog-container'});
+
+  //  dialogRef.afterClosed().subscribe(result => {
+  //    console.log('The dialog was closed');
+  //  });
+  //}
 
   ngOnInit() {
   }

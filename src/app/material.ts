@@ -14,6 +14,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
+// material items used in reviewee/reviewer
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
     imports: [
@@ -27,7 +33,13 @@ import { MatSelectModule } from '@angular/material/select';
         MatProgressSpinnerModule,
         MatTableModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+        MatRadioModule,
+
+        MatDatepickerModule,
+        MatNativeDateModule,
+        FormsModule
+
     ],
     exports: [
         MatButtonModule,
@@ -40,7 +52,15 @@ import { MatSelectModule } from '@angular/material/select';
         MatProgressSpinnerModule,
         MatTableModule,
         MatFormFieldModule,
-        MatSelectModule
-    ]
+        MatSelectModule,
+        MatRadioModule,
+
+        MatDatepickerModule,
+        MatNativeDateModule,
+        FormsModule
+    ],
+    providers:[
+        MatDatepickerModule
+    ],
 })
 export class MaterialModule { }

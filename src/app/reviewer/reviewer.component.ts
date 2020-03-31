@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
-import { NONE_TYPE } from '@angular/compiler';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { RequestComponent } from '../code-request/code-request.component';
 
 export interface AwaitingTable {
   projectName: string;
@@ -19,7 +19,7 @@ const ELEMENT_DATA: AwaitingTable[] = [
 ];
 
 @Component({
-  selector: 'app-reviewee',
+  selector: 'app-reviewer',
   templateUrl: './reviewer.component.html',
   styleUrls: ['./reviewer.component.scss'],
   
@@ -48,14 +48,21 @@ export class ReviewerComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
-  requestOpen(){
-
-  }
+  
   
   reviewername : string;
   reviewDate: Date;
   question1: number;
-  constructor() { }
+
+  constructor(public dialog: MatDialog) {}
+
+  requestOpen(): void {
+    const dialogRef = this.dialog.open(RequestComponent,{ panelClass: 'custom-dialog-container'});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+   });
+  }
 
   ngOnInit() {
   }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { RequestComponent } from '../code-request/code-request.component';
 
 export interface AwaitingTable {
   projectName: string;
@@ -47,14 +48,21 @@ export class ReviewerComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
-  requestOpen(){
-
-  }
+  
   
   reviewername : string;
   reviewDate: Date;
   question1: number;
-  constructor() { }
+
+  constructor(public dialog: MatDialog) {}
+
+  requestOpen(): void {
+    const dialogRef = this.dialog.open(RequestComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit() {
   }

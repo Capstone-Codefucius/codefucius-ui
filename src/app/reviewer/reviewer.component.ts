@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
 
 export interface AwaitingTable {
@@ -42,18 +42,42 @@ export class ReviewerComponent implements OnInit {
   displayedColumns: string[] = ['projectName', 'dueDate', 'requestTo', 'author'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  isOpen = true;
-
-  toggle() {
-    this.isOpen = !this.isOpen;
-  }
-
-  
-  
   reviewername : string;
   reviewDate: Date;
   question1: number;
 
+  isOpenAwait = false;
+  isOpenInProg = false;
+  isOpenComp = false;
+  reviewHours = false;
+
+  toggleAwait() {
+    this.isOpenInProg = false;
+    this.isOpenComp = false;
+    this.reviewHours = false;
+    this.isOpenAwait = !this.isOpenAwait;
+  }
+  toggleInProg() {
+    this.isOpenAwait = false;
+    this.isOpenComp = false;
+    this.reviewHours = false;
+    this.isOpenInProg = !this.isOpenInProg;
+  }
+  toggleComp() {
+    this.isOpenAwait = false;
+    this.isOpenInProg = false;
+    this.reviewHours = false;
+    this.isOpenComp = !this.isOpenComp;
+  }
+  toggleReview() {
+    this.isOpenAwait = false;
+    this.isOpenInProg = false;
+    this.isOpenComp = false;
+    this.reviewHours = !this.reviewHours;
+  }
+
+
+  
   constructor(public dialog: MatDialog) {}
 
   requestOpen(): void {

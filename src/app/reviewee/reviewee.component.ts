@@ -4,6 +4,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
 import { NONE_TYPE } from '@angular/compiler';
 
+import {MatDialog} from '@angular/material/dialog';
+import { RequestComponent } from '../code-request/code-request.component';
+
 export interface AwaitingTable {
   projectName: string;
   dueDate: string;
@@ -76,7 +79,15 @@ export class RevieweeComponent implements OnInit {
     this.reviewHours = !this.reviewHours;
   }
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  requestOpen(): void {
+    const dialogRef = this.dialog.open(RequestComponent,{ panelClass: 'custom-dialog-container'});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+   });
+  }
 
   ngOnInit() {
   }

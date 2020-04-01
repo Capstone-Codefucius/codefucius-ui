@@ -6,6 +6,7 @@ import { NONE_TYPE } from '@angular/compiler';
 
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
+import { FeedbackComponent } from '../feedback/feedback.component';
 
 
 
@@ -91,6 +92,15 @@ export class RevieweeComponent implements OnInit {
 
   requestOpen(): void {
     const dialogRef = this.dialog.open(RequestComponent, { panelClass: 'custom-dialog-container' });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  
+  requestOpenFeedback(): void {
+    const dialogRef = this.dialog.open(FeedbackComponent, { panelClass: 'custom-dialog-container' });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

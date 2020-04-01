@@ -56,14 +56,17 @@
         width: 75%;
     }
 
-    button{
+    .button-row button{
         background: #80CBC4;
         width:5%;
         height:8%;
-        position:fixed;
+        //position: absolute;
+        position: relative;
         bottom: 5%;
         right: 5%;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        margin-right: 24px;
+        float: right;
     }
 
     mat-card-content{

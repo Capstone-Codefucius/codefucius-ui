@@ -4,8 +4,11 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
 import { NONE_TYPE } from '@angular/compiler';
 
-import {MatDialog} from '@angular/material/dialog';
+
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
+import { FeedbackComponent } from '../feedback/feedback.component';
+
 
 export interface AwaitingTable {
   projectName: string;
@@ -15,18 +18,18 @@ export interface AwaitingTable {
 }
 
 const ELEMENT_DATA: AwaitingTable[] = [
-  {projectName: 'Emily McDonald', dueDate: 'Reviewee', requestTo: "name", author: "name"},
-  {projectName: 'Bill Smile', dueDate: 'Reviewee', requestTo: "name", author: "name"},
-  {projectName: 'Will Desk', dueDate: 'Reviewee', requestTo: "name", author: "name"},
-  {projectName: 'Smith Will', dueDate: 'Reviewee', requestTo: "name", author: "name"}
+  { projectName: 'Emily McDonald', dueDate: 'Reviewee', requestTo: "name", author: "name" },
+  { projectName: 'Bill Smile', dueDate: 'Reviewee', requestTo: "name", author: "name" },
+  { projectName: 'Will Desk', dueDate: 'Reviewee', requestTo: "name", author: "name" },
+  { projectName: 'Smith Will', dueDate: 'Reviewee', requestTo: "name", author: "name" }
 ];
 
 @Component({
   selector: 'app-reviewee',
   templateUrl: './reviewee.component.html',
   styleUrls: ['./reviewee.component.scss'],
-  
-  animations: [ 
+
+  animations: [
     trigger('openClose', [
       state('open', style({
         maxHeight: 400,
@@ -45,7 +48,13 @@ export class RevieweeComponent implements OnInit {
   displayedColumns: string[] = ['projectName', 'dueDate', 'requestTo', 'author'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  reviewername : string;
+  isOpen = true;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
+
+  reviewername: string;
   reviewDate: Date;
   question1: number;
 
@@ -79,14 +88,24 @@ export class RevieweeComponent implements OnInit {
     this.reviewHours = !this.reviewHours;
   }
 
-  constructor(public dialog: MatDialog) {}
+
+  constructor(public dialog: MatDialog) { }
 
   requestOpen(): void {
-    const dialogRef = this.dialog.open(RequestComponent,{ panelClass: 'custom-dialog-container'});
+    const dialogRef = this.dialog.open(RequestComponent, { panelClass: 'custom-dialog-container' });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-   });
+    });
+  }
+
+  
+  requestOpenFeedback(): void {
+    const dialogRef = this.dialog.open(FeedbackComponent, { panelClass: 'custom-dialog-container' });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   ngOnInit() {

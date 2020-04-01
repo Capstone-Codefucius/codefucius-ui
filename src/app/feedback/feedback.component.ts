@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
-  
+
   // binding
-  reviewername : string;
+  reviewername: string;
   reviewDate: Date;
-    question1: number;
+  question1: number;
 
   /*constructor() { 
     this.reviewername = "test2"
@@ -20,7 +20,7 @@ export class FeedbackComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public submit(){
+  public submit() {
     debugger;
   }
 

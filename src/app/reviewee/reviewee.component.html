@@ -51,12 +51,6 @@
     </mat-card>
 </div>
 
-<button mat-icon-button id="add">
-    <i class="material-icons">
-        add
-    </i>
-</button>
-
 <div id="awaitingChart" [@openClose]="isOpenAwait ? 'open' : 'closed'">
     <table mat-table [dataSource]="dataSource">
 
@@ -174,17 +168,18 @@
     </div>
 </div>
 
-<!-- <button mat-icon-button id="add" (click)="requestOpen()">
-    <i class="material-icons">
-        add
-    </i>
-</button> -->
 
-<div>
-    <button mat-icon-button id="giveFeedback" (click)="requestOpenFeedback()">
-        <button mat-button color="secondary">Give Feedback</button>
-
+<div class="button-row">
+    <button mat-icon-button id="add" (click)="requestOpen()">
+        <i class="material-icons">
+            add
+        </i>
     </button>
+
+    <button mat-icon-button id="giveFeedback" (click)="requestOpenFeedback()" color="secondary">
+        Give Feedback
+    </button>
+
 </div>
 
 

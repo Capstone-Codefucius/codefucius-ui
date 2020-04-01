@@ -4,10 +4,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
 import { NONE_TYPE } from '@angular/compiler';
 
+
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
-
 
 
 export interface AwaitingTable {
@@ -87,6 +87,7 @@ export class RevieweeComponent implements OnInit {
     this.isOpenComp = false;
     this.reviewHours = !this.reviewHours;
   }
+
 
   constructor(public dialog: MatDialog) { }
 

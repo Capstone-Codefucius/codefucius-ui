@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import {MatDialog} from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
+import { FeedbackComponent } from '../feedback/feedback.component';
 
 export interface AwaitingTable {
   projectName: string;
@@ -86,6 +87,14 @@ export class ReviewerComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
    });
+  }
+
+  requestOpenFeedback(): void {
+    const dialogRef = this.dialog.open(FeedbackComponent, { panelClass: 'custom-dialog-container' });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   ngOnInit() {

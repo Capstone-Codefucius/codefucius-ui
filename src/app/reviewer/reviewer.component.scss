@@ -137,11 +137,14 @@ button{
     margin-left: 5%;
 }
 
-/*
-.mat-dialog-container {
-    border: none !important;
-    padding: none !important;
-    background: #999999;
-    display: hidden;
-    overflow:auto; 
-}*/
+.feedback{
+    margin-right: -10%;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 15%;
+    width: 12%;
+    height: 12%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+   

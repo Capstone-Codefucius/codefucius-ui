@@ -106,6 +106,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <button mat-button class="feedbackButton" (click)="requestOpenFeedback()">Give Feedback</button>
     </div>
 
     <div id = "awaitingChart" [@openClose]="isOpenComp ? 'open' : 'closed'">

@@ -1,4 +1,66 @@
-<mat-card class="feedback-card">
+<h2 mat-dialog-title>How was your code review?</h2>
+<mat-dialog-content>
+    <form class="feedback-form">
+        <mat-form-field class="box-full-width">
+            <mat-label >Name of Reviewer</mat-label>
+            <input matInput name="rn" [(ngModel)]="reviewername" placeholder="John Doe">
+        </mat-form-field>
+        <mat-form-field class="dobContain">
+            <input matInput name="review-date" [(ngModel)]="reviewDate"  [matDatepicker]="datePicker" class="field" maxlength="30" type="text"
+                               placeholder="Date of Review">
+            <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+            <mat-datepicker #datePicker></mat-datepicker>
+        </mat-form-field>
+    </form>
+
+    <label id="radio-question1"><br /><br />1. I learned something that I will use on another project.<br /></label>
+    <mat-radio-group name="q1" [(ngModel)]="question1"  aria-label="numbers">
+        <mat-radio-button value="1">Poor </mat-radio-button>
+        <mat-radio-button value="2"> Fair </mat-radio-button>
+        <mat-radio-button value="3"> Good </mat-radio-button>
+        <mat-radio-button value="4"> Very Good</mat-radio-button>
+        <mat-radio-button value="5"> Excellent</mat-radio-button>
+
+    </mat-radio-group>
+
+    <label id="radio-question2"> <br /> <br />2. I had the opportunity to ask questions.<br /></label>
+    <mat-radio-group aria-label="numbers">
+        <mat-radio-button value="1">Poor </mat-radio-button>
+        <mat-radio-button value="2"> Fair </mat-radio-button>
+        <mat-radio-button value="3"> Good </mat-radio-button>
+        <mat-radio-button value="4"> Very Good</mat-radio-button>
+        <mat-radio-button value="5"> Excellent</mat-radio-button>
+    </mat-radio-group>
+
+
+    <label id="radio-question3"> <br /> <br />3. My questions were answered.<br /></label>
+    <mat-radio-group aria-label="numbers">
+        <mat-radio-button value="1">Poor </mat-radio-button>
+        <mat-radio-button value="2"> Fair </mat-radio-button>
+        <mat-radio-button value="3"> Good </mat-radio-button>
+        <mat-radio-button value="4"> Very Good</mat-radio-button>
+        <mat-radio-button value="5"> Excellent</mat-radio-button>
+    </mat-radio-group>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close id="Submit">Submit</button>
+  <button mat-button [mat-dialog-close]="true" id="Cancel">Cancel</button>
+</mat-dialog-actions>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <mat-card class="feedback-card">
     <mat-card-header>
         <mat-card-title>How was your code review? </mat-card-title>
     </mat-card-header>
@@ -7,7 +69,7 @@
         <form class="feedback-form">
             <mat-form-field class="box-full-width">
                 <mat-label >Name of Reviewer</mat-label>
-                <!-- binding -->
+                 binding 
                 <input matInput name="rn" [(ngModel)]="reviewername" placeholder="John Doe">
             </mat-form-field>
             <mat-form-field class="dobContain">
@@ -49,9 +111,9 @@
 
 
 
-        <!--<div *ngIf="isSubmitted && myForm.invalid">
+        <div *ngIf="isSubmitted && myForm.invalid">
             <p>Please select one value for each question.</p>
-         </div>-->
+         </div>
 
 
     </mat-card-content>
@@ -66,3 +128,4 @@
     </div>
 
 </mat-card>
+-->

@@ -2,13 +2,22 @@
     position: absolute;
     margin-left: 5%;
     width: 90%;
-    background-color: #673ab7;
+    background-color: #004d40;
 }
 
 #searchBox {
-    margin-top: 2%;
     position: relative;
-    margin-left: 10%;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+#topOfTable {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    margin: 1%;
+    background-color: #ffffff;
 }
 
 h1{
@@ -21,7 +30,8 @@ p{
 
 table {
     position: relative;
-    margin-left: 10%;
-    margin-bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 75%;
+    margin: 1%;
 }

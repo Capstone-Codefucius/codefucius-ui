@@ -11,7 +11,7 @@ import { ManagerComponent } from './manager/manager.component';
 import { NavComponent } from './nav/nav.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
-
+import { RequestComponent } from './code-request/code-request.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //custom class made for material
 import { MaterialModule } from './material';
@@ -27,6 +27,7 @@ import { MaterialModule } from './material';
     ManagerComponent,
     NavComponent,
     FeedbackComponent,
+    RequestComponent,
     
 
   ],
@@ -38,6 +39,7 @@ import { MaterialModule } from './material';
     MaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[RequestComponent],
 })
 export class AppModule { }

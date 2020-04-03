@@ -1,89 +1,185 @@
 <html>
-    <h1 id="title">Welcome</h1>
-    <div id="cardBox">
+<h1 id="title">Welcome</h1>
+<div id="cardBox">
 
-        <mat-card class="reviewee-card" (click)="toggle()">
-            <mat-card-header>
+    <mat-card class="reviewee-card" (click)="toggleAwait()">
+        <mat-card-header>
             <mat-card-content class="amount">
                 <p><b>4</b></p>
             </mat-card-content>
-            </mat-card-header>
-            <h1>Awaiting</h1>
-            <i class="material-icons">
-                keyboard_arrow_down
-            </i> 
-        </mat-card>
+        </mat-card-header>
+        <h1>Awaiting</h1>
+        <i class="material-icons">
+            keyboard_arrow_down
+        </i>
+    </mat-card>
 
-        <mat-card class="reviewee-card" (click)="toggle()">
-            <mat-card-header>
+    <mat-card class="reviewee-card" (click)="toggleInProg()">
+        <mat-card-header>
             <mat-card-content class="amount">
                 <p><b>6</b></p>
             </mat-card-content>
-            </mat-card-header>
-            <h1>In Progress</h1>
-            <i class="material-icons">
-                keyboard_arrow_down
-            </i> 
-        </mat-card>
+        </mat-card-header>
+        <h1>In Progress</h1>
+        <i class="material-icons">
+            keyboard_arrow_down
+        </i>
+    </mat-card>
 
-        <mat-card class="reviewee-card" (click)="toggle()">
-            <mat-card-header>
+    <mat-card class="reviewee-card" (click)="toggleComp()">
+        <mat-card-header>
             <mat-card-content class="amount">
                 <p><b>5</b></p>
             </mat-card-content>
-            </mat-card-header>
-            <h1>Completed</h1>
-            <i class="material-icons">
-                keyboard_arrow_down
-            </i> 
-        </mat-card>
+        </mat-card-header>
+        <h1>Completed</h1>
+        <i class="material-icons">
+            keyboard_arrow_down
+        </i>
+    </mat-card>
 
-        <mat-card class="reviewee-card" (click)="toggle()">
-            <mat-card-header>
+    <mat-card class="reviewee-card" (click)="toggleReview()">
+        <mat-card-header>
             <mat-card-content class="amount">
                 <p><b>10</b></p>
             </mat-card-content>
-            </mat-card-header>
-            <h1>Review Hours</h1>
-            <i class="material-icons">
-                keyboard_arrow_down
-            </i> 
-        </mat-card>
-    </div>
+        </mat-card-header>
+        <h1>Review Hours</h1>
+        <i class="material-icons">
+            keyboard_arrow_down
+        </i>
+    </mat-card>
+</div>
 
-    <div id = "awaitingChart" [@openClose]="isOpen ? 'open' : 'closed'">
-        <table mat-table [dataSource]="dataSource">
+<div id="awaitingChart" [@openClose]="isOpenAwait ? 'open' : 'closed'">
+    <table mat-table [dataSource]="dataSource">
 
-            <ng-container matColumnDef="projectName">
+        <ng-container matColumnDef="projectName">
             <th mat-header-cell *matHeaderCellDef> Project Name </th>
             <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
-            </ng-container>
+        </ng-container>
 
-            <ng-container matColumnDef="dueDate">
+        <ng-container matColumnDef="dueDate">
             <th mat-header-cell *matHeaderCellDef> Due Date </th>
             <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
-            </ng-container>
+        </ng-container>
 
-            <ng-container matColumnDef="requestTo">
+        <ng-container matColumnDef="requestTo">
             <th mat-header-cell *matHeaderCellDef> Request To </th>
             <td mat-cell *matCellDef="let element"> {{element.requestTo}} </td>
-            </ng-container>
+        </ng-container>
 
-            <ng-container matColumnDef="author">
+        <ng-container matColumnDef="author">
             <th mat-header-cell *matHeaderCellDef> Author </th>
             <td mat-cell *matCellDef="let element"> {{element.author}} </td>
-            </ng-container>
+        </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<div id="awaitingChart" [@openClose]="isOpenInProg ? 'open' : 'closed'">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="projectName">
+            <th mat-header-cell *matHeaderCellDef> Project Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="requestTo">
+            <th mat-header-cell *matHeaderCellDef> Request To </th>
+            <td mat-cell *matCellDef="let element"> {{element.requestTo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef> Author </th>
+            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<div id="awaitingChart" [@openClose]="isOpenComp ? 'open' : 'closed'">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="projectName">
+            <th mat-header-cell *matHeaderCellDef> Project Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="requestTo">
+            <th mat-header-cell *matHeaderCellDef> Request To </th>
+            <td mat-cell *matCellDef="let element"> {{element.requestTo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef> Author </th>
+            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<div id="reviewHoursForm" [@openClose]="reviewHours ? 'open' : 'closed'">
+    <h1>Add hours from completed code reviews</h1>
+    <div id="hoursFormBox">
+        <form id="hoursForm">
+            <p>Start Time:</p>
+            <mat-form-field appearance="fill">
+                <mat-label>Start Time</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-radio-group aria-label="timeofday" class="radioGroup">
+                <mat-radio-button value="1">AM</mat-radio-button>
+                <mat-radio-button value="2">PM</mat-radio-button>
+            </mat-radio-group>
+            <p class="endTime">End Time:</p>
+            <mat-form-field appearance="fill">
+                <mat-label>End Time</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-radio-group aria-label="timeofday">
+                <mat-radio-button value="1">AM</mat-radio-button>
+                <mat-radio-button value="2">PM</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field class="dobContain">
+                <input matInput name="review-date" [(ngModel)]="reviewDate" [matDatepicker]="datePicker" class="field"
+                    maxlength="30" type="text" placeholder="Date of Review">
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
+            <button mat-button class="submitButton">Submit</button>
+        </form>
     </div>
+</div>
 
-    <button mat-icon-button>
-      <i class="material-icons">
-          add
-      </i>
-  </button>
+<div class="button-row">
+    <button mat-icon-button id="add" (click)="requestOpen()">
+        <i class="material-icons">
+            add
+        </i>
+    </button>
+
+    <button mat-icon-button id="giveFeedback" (click)="requestOpenFeedback()" color="secondary">
+        Give Feedback
+    </button>
+
+</div>
+
 
 </html>
-

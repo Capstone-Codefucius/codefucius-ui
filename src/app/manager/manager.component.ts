@@ -28,6 +28,9 @@ export class ManagerComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  reviewDate: Date;
+  
   constructor() { }
 
   ngOnInit() {

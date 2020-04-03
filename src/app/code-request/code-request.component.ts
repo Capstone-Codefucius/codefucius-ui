@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.scss']
+  selector: 'app-code-request',
+  templateUrl: './code-request.component.html',
+  styleUrls: ['./code-request.component.scss']
 })
-export class FeedbackComponent implements OnInit {
-
+export class RequestComponent implements OnInit {
+  
   // binding
-  reviewername: string;
+  reviewername : string;
   reviewDate: Date;
   question1: number;
 
@@ -20,7 +20,7 @@ export class FeedbackComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public submit() {
+  public submit(){
     debugger;
   }
 

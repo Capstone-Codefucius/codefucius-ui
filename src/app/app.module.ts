@@ -15,6 +15,7 @@ import { RequestComponent } from './code-request/code-request.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //custom class made for material
 import { MaterialModule } from './material';
+import { ReviewService } from './services/review/review.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { MaterialModule } from './material';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [ReviewService],
   bootstrap: [AppComponent],
   entryComponents:[RequestComponent],
 })

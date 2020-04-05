@@ -6,8 +6,9 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 
-
+//fake database
 export class ReviewService {
+  //tutorial uses <object>; was getting errors so I switched to <any>
    review: Array<any> = [
     { Author: 'Stanley Hudson', RequestTo: 'Michael Scott', ProjectName: 'Sales app', Description: 'Added database to sales app', Status: 'Awaiting', Created: new Date('04-03-2020').toLocaleDateString(), Deadline: new Date('04-10-2020').toLocaleDateString() },
     { Author: 'Kevin Malone', RequestTo: 'Jim Halpert', ProjectName: 'Accounting software', Description: 'Updated expense feature', Status: 'Completed', Created: new Date('01-02-2020').toLocaleDateString(), Deadline: new Date('01-03-2020').toLocaleDateString() },
@@ -20,7 +21,8 @@ export class ReviewService {
   
   constructor() { }
 
-//functions for cards
+
+//functions for cards-- will need to tie this to the table, but for now, keeping them together. comment out all but one to see the table change in localhost.
   get() {
     return of(this.review);
   }

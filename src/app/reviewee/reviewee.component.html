@@ -5,7 +5,7 @@
     <mat-card class="reviewee-card" (click)="toggleAwait()">
         <mat-card-header>
             <mat-card-content class="amount">
-                <p><b>4</b></p>
+                <p><b id="awaitNum"></b></p>
             </mat-card-content>
         </mat-card-header>
         <h1>Awaiting</h1>
@@ -17,7 +17,7 @@
     <mat-card class="reviewee-card" (click)="toggleInProg()">
         <mat-card-header>
             <mat-card-content class="amount">
-                <p><b>6</b></p>
+                <p><b id="inProgNum"></b></p>
             </mat-card-content>
         </mat-card-header>
         <h1>In Progress</h1>
@@ -29,7 +29,7 @@
     <mat-card class="reviewee-card" (click)="toggleComp()">
         <mat-card-header>
             <mat-card-content class="amount">
-                <p><b>5</b></p>
+                <p><b id="compNum"></b></p>
             </mat-card-content>
         </mat-card-header>
         <h1>Completed</h1>
@@ -52,35 +52,52 @@
 </div>
 
 <div id="awaitingChart" [@openClose]="isOpenAwait ? 'open' : 'closed'">
-    <table mat-table [dataSource]="dataSource">
+    <!-- <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="projectName">
             <th mat-header-cell *matHeaderCellDef> Project Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.ProjectName}} </td>
         </ng-container>
 
         <ng-container matColumnDef="dueDate">
             <th mat-header-cell *matHeaderCellDef> Due Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.Deadline}} </td>
         </ng-container>
 
         <ng-container matColumnDef="requestTo">
             <th mat-header-cell *matHeaderCellDef> Request To </th>
-            <td mat-cell *matCellDef="let element"> {{element.requestTo}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.RequestTo}} </td>
         </ng-container>
 
         <ng-container matColumnDef="author">
             <th mat-header-cell *matHeaderCellDef> Author </th>
-            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.Author}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    </table> -->
+    <table>
+        <thead>
+          <th>Project Name</th>
+          <th>Due Date</th>
+          <th>Request To</th>
+          <th>Author</th>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let review of reviews">
+            <td>{{review.ProjectName}}</td>
+            <td>{{review.Deadline}}</td>
+            <td>{{review.RequestTo}}</td>
+            <td>{{review.Author}}</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
 
 <div id="awaitingChart" [@openClose]="isOpenInProg ? 'open' : 'closed'">
-    <table mat-table [dataSource]="dataSource">
+    <!-- <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="projectName">
             <th mat-header-cell *matHeaderCellDef> Project Name </th>
@@ -104,11 +121,28 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    </table> -->
+    <table>
+        <thead>
+          <th>Project Name</th>
+          <th>Due Date</th>
+          <th>Request To</th>
+          <th>Author</th>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let review of reviews">
+            <td>{{review.ProjectName}}</td>
+            <td>{{review.Deadline}}</td>
+            <td>{{review.RequestTo}}</td>
+            <td>{{review.Author}}</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
 
 <div id="awaitingChart" [@openClose]="isOpenComp ? 'open' : 'closed'">
-    <table mat-table [dataSource]="dataSource">
+    <!-- <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="projectName">
             <th mat-header-cell *matHeaderCellDef> Project Name </th>
@@ -132,7 +166,25 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    </table> -->
+    <table>
+        <thead>
+          <th>Project Name</th>
+          <th>Due Date</th>
+          <th>Request To</th>
+          <th>Author</th>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let review of reviews">
+            <td>{{review.ProjectName}}</td>
+            <td>{{review.Deadline}}</td>
+            <td>{{review.RequestTo}}</td>
+            <td>{{review.Author}}</td>
+          </tr>
+        </tbody>
+      </table>
+    <button mat-button class="feedbackButton" (click)="requestOpenFeedback()">Give Feedback</button>
 </div>
 
 <div id="reviewHoursForm" [@openClose]="reviewHours ? 'open' : 'closed'">
@@ -168,18 +220,11 @@
     </div>
 </div>
 
-<div class="button-row">
-    <button mat-icon-button id="add" (click)="requestOpen()">
-        <i class="material-icons">
-            add
-        </i>
-    </button>
-
-    <button mat-icon-button id="giveFeedback" (click)="requestOpenFeedback()" color="secondary">
-        Give Feedback
-    </button>
-
-</div>
+<button mat-icon-button id="add" (click)="requestOpen()">
+    <i class="material-icons">
+        add
+    </i>
+</button>
 
 
 </html>

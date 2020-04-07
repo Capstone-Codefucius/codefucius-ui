@@ -26,12 +26,16 @@ export class AppComponent implements OnInit {
       this.reviews = res;
     });
 
-   /*  this.ReviewService.getAwaiting().subscribe(res => {
-      this.reviews = res;
-    }); */
+    // this.ReviewService.getAwaiting().subscribe(res => {
+    //   this.reviews = res;
+    // }); 
 
- /*    this.ReviewService.getCompleted().subscribe(res => {
-      this.reviews = res;
-    }); */
+    // this.ReviewService.getInProgress().subscribe(res => {
+    //   this.reviews = res;
+    // }); 
+
+    // this.ReviewService.getCompleted().subscribe(res => {
+    //   this.reviews = res;
+    // }); 
   }
 }

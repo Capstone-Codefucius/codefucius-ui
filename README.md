@@ -26,3 +26,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Mock API
+Skip to "creating a service" : https://atom-morgan.github.io/how-to-mock-an-api-in-angular/
+Name convention for services: type "services/" before the services name

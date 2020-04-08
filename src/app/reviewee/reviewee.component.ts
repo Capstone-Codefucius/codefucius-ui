@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
 import { NONE_TYPE } from '@angular/compiler';
+import { ReviewService } from './../services/review/review.service';
 
 
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
@@ -46,14 +47,11 @@ const ELEMENT_DATA: AwaitingTable[] = [
 
 export class RevieweeComponent implements OnInit {
   displayedColumns: string[] = ['projectName', 'dueDate', 'requestTo', 'author'];
+
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  isOpen = true;
-
-  toggle() {
-    this.isOpen = !this.isOpen;
-  }
-
+  reviews: Array<object>;
+  
   reviewername: string;
   reviewDate: Date;
   question1: number;
@@ -63,22 +61,36 @@ export class RevieweeComponent implements OnInit {
   isOpenComp = false;
   reviewHours = false;
 
+
+  awaitNum = 0;
+  inProgNum = 0;
+  compNum = 0;
+
   toggleAwait() {
     this.isOpenInProg = false;
     this.isOpenComp = false;
     this.reviewHours = false;
+    this.ReviewService.getAwaiting().subscribe(res => {this.reviews = res;}); 
+    this.awaitNum = this.reviews.length;
+    document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
     this.isOpenAwait = !this.isOpenAwait;
   }
   toggleInProg() {
     this.isOpenAwait = false;
     this.isOpenComp = false;
     this.reviewHours = false;
+    this.ReviewService.getInProgress().subscribe(res => {this.reviews = res;}); 
+    this.inProgNum = this.reviews.length;
+    document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
     this.isOpenInProg = !this.isOpenInProg;
   }
   toggleComp() {
     this.isOpenAwait = false;
     this.isOpenInProg = false;
     this.reviewHours = false;
+    this.ReviewService.getCompleted().subscribe(res => {this.reviews = res;});
+    this.compNum = this.reviews.length;
+    document.getElementById('compNum').innerHTML = this.compNum.toString(); 
     this.isOpenComp = !this.isOpenComp;
   }
   toggleReview() {
@@ -89,7 +101,7 @@ export class RevieweeComponent implements OnInit {
   }
 
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private ReviewService: ReviewService) { }
 
   requestOpen(): void {
     const dialogRef = this.dialog.open(RequestComponent, { panelClass: 'custom-dialog-container' });
@@ -109,6 +121,20 @@ export class RevieweeComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.ReviewService.get().subscribe(res => {
+    //   this.reviews = res;
+    // });
+    this.ReviewService.getAwaiting().subscribe(res => {this.reviews = res;}); 
+    this.awaitNum = this.reviews.length;
+    document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
+
+    this.ReviewService.getInProgress().subscribe(res => {this.reviews = res;}); 
+    this.inProgNum = this.reviews.length;
+    document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
+
+    this.ReviewService.getCompleted().subscribe(res => {this.reviews = res;});
+    this.compNum = this.reviews.length;
+    document.getElementById('compNum').innerHTML = this.compNum.toString(); 
   }
 
 }

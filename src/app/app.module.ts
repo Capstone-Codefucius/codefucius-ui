@@ -13,6 +13,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 import { RequestComponent } from './code-request/code-request.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 //custom class made for material
 import { MaterialModule } from './material';
 import { ReviewService } from './services/review/review.service';
@@ -29,15 +30,14 @@ import { ReviewService } from './services/review/review.service';
     NavComponent,
     FeedbackComponent,
     RequestComponent,
-    
-
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgxChartsModule
   ],
   providers: [ReviewService],
   bootstrap: [AppComponent],

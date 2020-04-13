@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //custom class made for material
 import { MaterialModule } from './material';
 import { ReviewService } from './services/review/review.service';
+import { UserService } from './services/user/user.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -37,9 +39,10 @@ import { ReviewService } from './services/review/review.service';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [ReviewService],
+  providers: [ReviewService, UserService],
   bootstrap: [AppComponent],
   entryComponents:[RequestComponent],
 })

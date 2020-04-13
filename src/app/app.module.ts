@@ -17,6 +17,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 //custom class made for material
 import { MaterialModule } from './material';
 import { ReviewService } from './services/review/review.service';
+import { UserService } from './services/user/user.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -37,9 +39,13 @@ import { ReviewService } from './services/review/review.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+<<<<<<< HEAD
     NgxChartsModule
+=======
+    HttpClientModule
+>>>>>>> 8b17a7f057a05e6beb29a3a2886caad95e1bb833
   ],
-  providers: [ReviewService],
+  providers: [ReviewService, UserService],
   bootstrap: [AppComponent],
   entryComponents:[RequestComponent],
 })

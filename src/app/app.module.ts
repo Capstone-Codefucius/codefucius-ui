@@ -39,7 +39,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [ReviewService, UserService],
   bootstrap: [AppComponent],

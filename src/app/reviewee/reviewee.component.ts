@@ -130,7 +130,6 @@ export class RevieweeComponent implements OnInit {
 
   ngOnInit() {
     this.ReviewService.getAll().subscribe(res => {
-      //loop, check status, put into new array
       this.reviews = res;
       this.awaiting = [];
       this.inprogress = [];
@@ -142,7 +141,6 @@ export class RevieweeComponent implements OnInit {
         }
         if (this.reviews[i].status == 'In-progress') {
           this.inprogress.push(this.reviews[i]);
-          debugger;
         }
         if (this.reviews[i].status == 'Completed') {
           this.completed.push(this.reviews[i]);

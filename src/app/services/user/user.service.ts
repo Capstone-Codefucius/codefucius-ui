@@ -15,9 +15,7 @@ export class UserService {
 
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.CODEFUCIUS_API);
-    /*        .pipe(
-            catchError(this.handleError<User[]>('getUser', []))
-          ); */
+
   }
 
   get(id: string) {
@@ -40,8 +38,5 @@ export class UserService {
   remove(id: number) {
     return this.http.delete(`${this.CODEFUCIUS_API}/${id.toString()}`);
   }
-
-  /*  getUser(): Observable<User[]>{
-      return of(User);  
-  } */
+  
 }

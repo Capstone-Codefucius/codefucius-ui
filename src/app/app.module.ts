@@ -39,8 +39,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgxChartsModule,
+<<<<<<< HEAD
+    NgxChartsModule
+=======
     HttpClientModule
+>>>>>>> 8b17a7f057a05e6beb29a3a2886caad95e1bb833
   ],
   providers: [ReviewService, UserService],
   bootstrap: [AppComponent],

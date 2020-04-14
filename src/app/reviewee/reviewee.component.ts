@@ -4,9 +4,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
 import { NONE_TYPE } from '@angular/compiler';
 import { ReviewService } from './../services/review/review.service';
+import { Review } from './../services/review/review';
 
 
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
 
@@ -50,8 +51,11 @@ export class RevieweeComponent implements OnInit {
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  reviews: Array<object>;
-  
+  reviews: Array<Review>;
+  awaiting: Array<Review>;
+  inprogress: Array<Review>;
+  completed: Array<Review>;
+
   reviewername: string;
   reviewDate: Date;
   question1: number;
@@ -66,11 +70,13 @@ export class RevieweeComponent implements OnInit {
   inProgNum = 0;
   compNum = 0;
 
+
+
   toggleAwait() {
     this.isOpenInProg = false;
     this.isOpenComp = false;
     this.reviewHours = false;
-    this.ReviewService.getAwaiting().subscribe(res => {this.reviews = res;}); 
+    this.reviews = this.awaiting;
     this.awaitNum = this.reviews.length;
     document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
     this.isOpenAwait = !this.isOpenAwait;
@@ -79,8 +85,9 @@ export class RevieweeComponent implements OnInit {
     this.isOpenAwait = false;
     this.isOpenComp = false;
     this.reviewHours = false;
-    this.ReviewService.getInProgress().subscribe(res => {this.reviews = res;}); 
     this.inProgNum = this.reviews.length;
+    this.reviews = this.inprogress;
+
     document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
     this.isOpenInProg = !this.isOpenInProg;
   }
@@ -88,9 +95,10 @@ export class RevieweeComponent implements OnInit {
     this.isOpenAwait = false;
     this.isOpenInProg = false;
     this.reviewHours = false;
-    this.ReviewService.getCompleted().subscribe(res => {this.reviews = res;});
+    this.reviews = this.completed;
+
     this.compNum = this.reviews.length;
-    document.getElementById('compNum').innerHTML = this.compNum.toString(); 
+    document.getElementById('compNum').innerHTML = this.compNum.toString();
     this.isOpenComp = !this.isOpenComp;
   }
   toggleReview() {
@@ -111,7 +119,7 @@ export class RevieweeComponent implements OnInit {
     });
   }
 
-  
+
   requestOpenFeedback(): void {
     const dialogRef = this.dialog.open(FeedbackComponent, { panelClass: 'custom-dialog-container' });
 
@@ -121,20 +129,24 @@ export class RevieweeComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.ReviewService.get().subscribe(res => {
-    //   this.reviews = res;
-    // });
-    this.ReviewService.getAwaiting().subscribe(res => {this.reviews = res;}); 
-    this.awaitNum = this.reviews.length;
-    document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
+    this.ReviewService.getAll().subscribe(res => {
+      this.reviews = res;
+      this.awaiting = [];
+      this.inprogress = [];
+      this.completed = [];
 
-    this.ReviewService.getInProgress().subscribe(res => {this.reviews = res;}); 
-    this.inProgNum = this.reviews.length;
-    document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
-
-    this.ReviewService.getCompleted().subscribe(res => {this.reviews = res;});
-    this.compNum = this.reviews.length;
-    document.getElementById('compNum').innerHTML = this.compNum.toString(); 
+      for (let i = 0; i < this.reviews.length; ++i) {
+        if (this.reviews[i].status == 'Awaiting') {
+          this.awaiting.push(this.reviews[i]);
+        }
+        if (this.reviews[i].status == 'In-progress') {
+          this.inprogress.push(this.reviews[i]);
+        }
+        if (this.reviews[i].status == 'Completed') {
+          this.completed.push(this.reviews[i]);
+        }
+      }
+    })
   }
 
 }

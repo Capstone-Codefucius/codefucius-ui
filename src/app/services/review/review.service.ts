@@ -1,41 +1,43 @@
 //tutorial https://atom-morgan.github.io/how-to-mock-an-api-in-angular/
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Review } from '../../services/review/review';
 
 @Injectable({
   providedIn: 'root'
 })
 
-//fake database
 export class ReviewService {
-  //tutorial uses <object>; was getting errors so I switched to <any>
-   review: Array<any> = [
-    { Author: 'Stanley Hudson', RequestTo: 'Michael Scott', ProjectName: 'Sales app', Description: 'Added database to sales app', Status: 'Awaiting', Created: new Date('04-03-2020').toLocaleDateString(), Deadline: new Date('04-10-2020').toLocaleDateString() },
-    { Author: 'Kevin Malone', RequestTo: 'Jim Halpert', ProjectName: 'Accounting software', Description: 'Updated expense feature', Status: 'Completed', Created: new Date('01-02-2020').toLocaleDateString(), Deadline: new Date('01-03-2020').toLocaleDateString() },
-    { Author: 'Meredith Palmer', RequestTo: 'Andy Dwyer', ProjectName: 'Company website', Description: 'Coded front-end in React', Status: 'In Progress', Created: new Date('02-04-2020').toLocaleDateString(), Deadline: new Date('02-06-2020').toLocaleDateString() },
-    { Author: 'Creed Bratton', RequestTo: 'Michael Scott' , ProjectName: 'Company website', Description: 'Need help with bug', Status: 'In Progress', Created: new Date('03-26-2020').toLocaleDateString(), Deadline: new Date('04-02-2020').toLocaleDateString() },
-    { Author: 'Phyllis Vance', RequestTo: 'Michael Scott', ProjectName: 'Sales app', Description: 'Created API for sales app', Status: 'Completed', Created: new Date('02-16-2020').toLocaleDateString(), Deadline: new Date('02-28-2020').toLocaleDateString() },
-    { Author: 'Pam Halpert', RequestTo: 'Andy Dwyer', ProjectName: 'Company website', Description: 'Fixing front-end UI', Status: 'Completed', Created: new Date('04-03-2020').toLocaleDateString(), Deadline: new Date('05-01-2020').toLocaleDateString() },
-    { Author: 'Kelly Kapoor', RequestTo: 'Jim Halpert', ProjectName: 'Customer Service Portal', Description: 'Created portal in Python', Status: 'Awaiting', Created: new Date('04-15-2020').toLocaleDateString(), Deadline: new Date('04-21-2020').toLocaleDateString() }
-  ];
-  
-  constructor() { }
+  //public API = 'http://localhost:5000/api';  //make sure uncommented for GitHub
+  public API = 'https://localhost:44363/api'; //for Kristi's env local only
 
+  public CODEFUCIUS_API = `${this.API}/reviews`;
+  constructor(private http: HttpClient) { }
 
-//functions for cards-- will need to tie this to the table, but for now, keeping them together. comment out all but one to see the table change in localhost.
-  get() {
-    return of(this.review);
+  get(id: string) {
+    return this.http.get(`${this.CODEFUCIUS_API}/${id}`);
+  }
+  getAll(): Observable<Review[]> {
+    return this.http.get<Review[]>(this.CODEFUCIUS_API);
   }
 
-  getAwaiting() {
-    return of(this.review.filter(r=>r.Status =='Awaiting'));
-  }
-  
-  getInProgress() {
-    return of(this.review.filter(r=>r.Status =='In Progress'));
+  save(review: Review): Observable<Review> {
+    let result: Observable<Review>;
+    if (review.ID) {
+      result = this.http.put<Review>(
+        `${this.CODEFUCIUS_API}/${review.ID}`,
+        review
+      );
+    } else {
+      result = this.http.post<Review>(this.CODEFUCIUS_API, review);
+    }
+    return result;
   }
 
-  getCompleted() {
-    return of(this.review.filter(r=>r.Status =='Completed'));
+  remove(id: number) {
+    return this.http.delete(`${this.CODEFUCIUS_API}/${id.toString()}`);
   }
+
 }

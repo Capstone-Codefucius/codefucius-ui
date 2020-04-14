@@ -77,24 +77,8 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table> -->
-    <table>
-        <thead>
-          <th>Project Name</th>
-          <th>Due Date</th>
-          <th>Request To</th>
-          <th>Author</th>
-        </thead>
-      
-        <tbody>
-          <tr *ngFor="let review of reviews">
-            <td>{{review.ProjectName}}</td>
-            <td>{{review.Deadline}}</td>
-            <td>{{review.RequestTo}}</td>
-            <td>{{review.Author}}</td>
-          </tr>
-        </tbody>
-      </table>
-</div>
+  </div>
+
 
 <div id="awaitingChart" [@openClose]="isOpenInProg ? 'open' : 'closed'">
     <!-- <table mat-table [dataSource]="dataSource">
@@ -124,21 +108,21 @@
     </table> -->
     <table>
         <thead>
-          <th>Project Name</th>
-          <th>Due Date</th>
-          <th>Request To</th>
-          <th>Author</th>
+            <th>Project Name</th>
+            <th>Due Date</th>
+            <th>Request To</th>
+            <th>Author</th>
         </thead>
-      
+
         <tbody>
-          <tr *ngFor="let review of reviews">
-            <td>{{review.ProjectName}}</td>
-            <td>{{review.Deadline}}</td>
-            <td>{{review.RequestTo}}</td>
-            <td>{{review.Author}}</td>
-          </tr>
+            <tr *ngFor="let review of reviews">
+                <td>{{review.ProjectName}}</td>
+                <td>{{review.Deadline}}</td>
+                <td>{{review.RequestTo}}</td>
+                <td>{{review.Author}}</td>
+            </tr>
         </tbody>
-      </table>
+    </table>
 </div>
 
 <div id="awaitingChart" [@openClose]="isOpenComp ? 'open' : 'closed'">
@@ -169,21 +153,21 @@
     </table> -->
     <table>
         <thead>
-          <th>Project Name</th>
-          <th>Due Date</th>
-          <th>Request To</th>
-          <th>Author</th>
+            <th>Project Name</th>
+            <th>Due Date</th>
+            <th>Request To</th>
+            <th>Author</th>
         </thead>
-      
+
         <tbody>
-          <tr *ngFor="let review of reviews">
-            <td>{{review.ProjectName}}</td>
-            <td>{{review.Deadline}}</td>
-            <td>{{review.RequestTo}}</td>
-            <td>{{review.Author}}</td>
-          </tr>
+            <tr *ngFor="let review of reviews">
+                <td>{{review.ProjectName}}</td>
+                <td>{{review.Deadline}}</td>
+                <td>{{review.RequestTo}}</td>
+                <td>{{review.Author}}</td>
+            </tr>
         </tbody>
-      </table>
+    </table>
     <button mat-button class="feedbackButton" (click)="requestOpenFeedback()">Give Feedback</button>
 </div>
 
@@ -220,11 +204,35 @@
     </div>
 </div>
 
+
 <button mat-icon-button id="add" (click)="requestOpen()">
     <i class="material-icons">
         add
     </i>
 </button>
+
+<!-- needs moved into a card -->
+<div>
+    <table>
+        <thead>
+            <th>Title</th>
+            <th>Deadline</th>
+            <th>Request To</th>
+            <th>Author</th>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let review of reviews">
+                <td>{{review.title}}</td>
+                <td>{{review.deadline}}</td>
+                <td>{{review.id}}</td>
+                <td>{{review.authorID}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
 
 
 </html>

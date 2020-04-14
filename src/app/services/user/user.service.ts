@@ -32,7 +32,7 @@ export class UserService {
         user
       );
     } else {
-      result = this.http.post<User>(this.CODEFUCIUS_API, user); //might be something wrong here
+      result = this.http.post<User>(this.CODEFUCIUS_API, user); 
     }
     return result;
   }

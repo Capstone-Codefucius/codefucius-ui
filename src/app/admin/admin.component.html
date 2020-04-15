@@ -9,14 +9,13 @@
     </mat-form-field>
   </div>
 
-  <table class="mat-table">
+  <table class="mat-table" [dataSource]="dataSource">
     <tr class="mat-header-row">
     <th class="mat-header-cell">Name</th>
     <th class="mat-header-cell">Role</th>
     </tr>
     <tr class="mat-row" *ngFor="let user of users">
       <td class="mat-cell">{{user.name}}</td>
-      <!-- <td class="mat-cell">{{user.role}}</td> -->
       <td class="mat-cell">
         <div>
           <mat-form-field appearance="fill">
@@ -50,8 +49,6 @@
 
   </ng-container> -->
  
-
-
 </div>
 
 </html>

@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import {MatDialog} from '@angular/material/dialog';
+import { BlockScrollStrategy, FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
+import { NONE_TYPE } from '@angular/compiler';
+import { ReviewService } from './../services/review/review.service';
+import { Review } from './../services/review/review';
+
+
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { RequestComponent } from '../code-request/code-request.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
-import { ReviewService } from './../services/review/review.service';
+
 
 export interface AwaitingTable {
   projectName: string;
@@ -13,19 +19,19 @@ export interface AwaitingTable {
   author: string;
 }
 
-const ELEMENT_DATA: AwaitingTable[] = [
-  {projectName: 'Emily McDonald', dueDate: 'Reviewee', requestTo: "name", author: "name"},
-  {projectName: 'Bill Smile', dueDate: 'Reviewee', requestTo: "name", author: "name"},
-  {projectName: 'Will Desk', dueDate: 'Reviewee', requestTo: "name", author: "name"},
-  {projectName: 'Smith Will', dueDate: 'Reviewee', requestTo: "name", author: "name"}
-];
+/* const ELEMENT_DATA: AwaitingTable[] = [
+  { projectName: 'Emily McDonald', dueDate: 'Reviewee', requestTo: "name", author: "name" },
+  { projectName: 'Bill Smile', dueDate: 'Reviewee', requestTo: "name", author: "name" },
+  { projectName: 'Will Desk', dueDate: 'Reviewee', requestTo: "name", author: "name" },
+  { projectName: 'Smith Will', dueDate: 'Reviewee', requestTo: "name", author: "name" }
+]; */
 
 @Component({
-  selector: 'app-reviewer',
+  selector: 'app-reviewee',
   templateUrl: './reviewer.component.html',
   styleUrls: ['./reviewer.component.scss'],
-  
-  animations: [ 
+
+  animations: [
     trigger('openClose', [
       state('open', style({
         maxHeight: 400,
@@ -42,11 +48,15 @@ const ELEMENT_DATA: AwaitingTable[] = [
 
 export class ReviewerComponent implements OnInit {
   displayedColumns: string[] = ['projectName', 'dueDate', 'requestTo', 'author'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  
-  reviews: Array<object>;
 
-  reviewername : string;
+  // dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  reviews: Array<Review>;
+  awaiting: Array<Review>;
+  inprogress: Array<Review>;
+  completed: Array<Review>;
+
+  reviewername: string;
   reviewDate: Date;
   question1: number;
 
@@ -55,36 +65,78 @@ export class ReviewerComponent implements OnInit {
   isOpenComp = false;
   reviewHours = false;
 
+
   awaitNum = 0;
   inProgNum = 0;
   compNum = 0;
 
-  toggleAwait() {
+
+
+ /*  toggleAwait() {
     this.isOpenInProg = false;
     this.isOpenComp = false;
     this.reviewHours = false;
-    this.isOpenAwait = !this.isOpenAwait;
-    this.ReviewService.getAwaiting().subscribe(res => {this.reviews = res;}); 
+    this.reviews = this.awaiting;
     this.awaitNum = this.reviews.length;
     document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
+    this.isOpenAwait = !this.isOpenAwait;
   }
   toggleInProg() {
     this.isOpenAwait = false;
     this.isOpenComp = false;
     this.reviewHours = false;
-    this.isOpenInProg = !this.isOpenInProg;
-    this.ReviewService.getInProgress().subscribe(res => {this.reviews = res;}); 
     this.inProgNum = this.reviews.length;
+    this.reviews = this.inprogress;
+
     document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
+    this.isOpenInProg = !this.isOpenInProg;
   }
   toggleComp() {
     this.isOpenAwait = false;
     this.isOpenInProg = false;
     this.reviewHours = false;
-    this.isOpenComp = !this.isOpenComp;
-    this.ReviewService.getCompleted().subscribe(res => {this.reviews = res;});
+    this.reviews = this.completed;
+
     this.compNum = this.reviews.length;
-    document.getElementById('compNum').innerHTML = this.compNum.toString(); 
+    document.getElementById('compNum').innerHTML = this.compNum.toString();
+    this.isOpenComp = !this.isOpenComp;
+  }
+  toggleReview() {
+    this.isOpenAwait = false;
+    this.isOpenInProg = false;
+    this.isOpenComp = false;
+    this.reviewHours = !this.reviewHours;
+  } */
+
+  toggleAwait() {
+    this.isOpenInProg = false;
+    this.isOpenComp = false;
+    this.reviewHours = false;
+    this.reviews = this.awaiting;
+
+    this.awaitNum = this.reviews.length;
+    document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
+    this.isOpenAwait = !this.isOpenAwait;
+  }
+  toggleInProg() {
+    this.isOpenAwait = false;
+    this.isOpenComp = false;
+    this.reviewHours = false;
+    this.reviews = this.inprogress;
+
+    this.inProgNum = this.reviews.length;
+    document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
+    this.isOpenInProg = !this.isOpenInProg;
+  }
+  toggleComp() {
+    this.isOpenAwait = false;
+    this.isOpenInProg = false;
+    this.reviewHours = false;
+    this.reviews = this.completed;
+
+    this.compNum = this.reviews.length;
+    document.getElementById('compNum').innerHTML = this.compNum.toString();
+    this.isOpenComp = !this.isOpenComp;
   }
   toggleReview() {
     this.isOpenAwait = false;
@@ -94,16 +146,16 @@ export class ReviewerComponent implements OnInit {
   }
 
 
-  
-  constructor(public dialog: MatDialog, private ReviewService: ReviewService) {}
+  constructor(public dialog: MatDialog, private ReviewService: ReviewService) { }
 
   requestOpen(): void {
-    const dialogRef = this.dialog.open(RequestComponent,{ panelClass: 'custom-dialog-container'});
+    const dialogRef = this.dialog.open(RequestComponent, { panelClass: 'custom-dialog-container' });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-   });
+    });
   }
+
 
   requestOpenFeedback(): void {
     const dialogRef = this.dialog.open(FeedbackComponent, { panelClass: 'custom-dialog-container' });
@@ -114,17 +166,24 @@ export class ReviewerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ReviewService.getAwaiting().subscribe(res => {this.reviews = res;}); 
-    this.awaitNum = this.reviews.length;
-    document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
+    this.ReviewService.getAll().subscribe(res => {
+      this.reviews = res;
+      this.awaiting = [];
+      this.inprogress = [];
+      this.completed = [];
 
-    this.ReviewService.getInProgress().subscribe(res => {this.reviews = res;}); 
-    this.inProgNum = this.reviews.length;
-    document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
-
-    this.ReviewService.getCompleted().subscribe(res => {this.reviews = res;});
-    this.compNum = this.reviews.length;
-    document.getElementById('compNum').innerHTML = this.compNum.toString(); 
+      for (let i = 0; i < this.reviews.length; ++i) {
+        if (this.reviews[i].status == 'Awaiting') {
+          this.awaiting.push(this.reviews[i]);
+        }
+        if (this.reviews[i].status == 'In-progress') {
+          this.inprogress.push(this.reviews[i]);
+        }
+        if (this.reviews[i].status == 'Completed') {
+          this.completed.push(this.reviews[i]);
+        }
+      }
+    })
   }
 
 }

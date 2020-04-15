@@ -19,13 +19,13 @@ export interface AwaitingTable {
   author: string;
 }
 
-const ELEMENT_DATA: AwaitingTable[] = [
+/* const ELEMENT_DATA: AwaitingTable[] = [
   { projectName: 'Emily McDonald', dueDate: 'Reviewee', requestTo: "name", author: "name" },
   { projectName: 'Bill Smile', dueDate: 'Reviewee', requestTo: "name", author: "name" },
   { projectName: 'Will Desk', dueDate: 'Reviewee', requestTo: "name", author: "name" },
   { projectName: 'Smith Will', dueDate: 'Reviewee', requestTo: "name", author: "name" }
 ];
-
+ */
 @Component({
   selector: 'app-reviewee',
   templateUrl: './reviewee.component.html',
@@ -49,7 +49,7 @@ const ELEMENT_DATA: AwaitingTable[] = [
 export class RevieweeComponent implements OnInit {
   displayedColumns: string[] = ['projectName', 'dueDate', 'requestTo', 'author'];
 
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  // dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   reviews: Array<Review>;
   awaiting: Array<Review>;

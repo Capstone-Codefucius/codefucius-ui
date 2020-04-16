@@ -11,12 +11,17 @@
     margin-left: 2%;
 }
 
-#reviewDateSelector {
+#reviewDateTo {
     position: relative;
     margin-left: 2%;
 }
 
-#topOfChart {
+#reviewDateFrom {
+    position: relative;
+    margin-left: 2%;
+}
+
+#topOfTable {
     position: relative;
     left: 50%;
     transform: translateX(-50%);

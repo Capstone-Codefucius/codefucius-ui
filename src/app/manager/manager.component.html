@@ -2,18 +2,27 @@
 <h1 id="title">Welcome</h1>
 <div id="employeeBox">
 
-  <div id="topOfChart">
+  <div id="topOfTable">
     <mat-form-field id="searchBox" appearance="fill">
       <mat-label>Search Data</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John Smith">
     </mat-form-field>
 
-    <mat-form-field id="reviewDateSelector" appearance="fill">
-      <mat-label>Date of Review</mat-label>
-      <input matInput name="review-date" [(ngModel)]="reviewDate" [matDatepicker]="datePicker" class="field"
+    <mat-form-field id="reviewDateFrom" appearance="fill">
+      <mat-label>From</mat-label>
+      <input matInput name="review-date-from" [(ngModel)]="reviewDateFrom" [matDatepicker]="datePickerTo" class="field"
         maxlength="30" type="text" placeholder="MM/DD/YYYY">
-      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
-      <mat-datepicker #datePicker></mat-datepicker>
+      <mat-datepicker-toggle matSuffix [for]="datePickerTo"></mat-datepicker-toggle>
+      <mat-datepicker #datePickerTo></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field id="reviewDateTo" appearance="fill">
+      <mat-label>To</mat-label>
+      <input matInput name="review-date-to" [(ngModel)]="reviewDateTo" [ngModelOptions]="{standalone: true}"
+        [matDatepicker]="datePickerFrom"
+        class="field" maxlength="30" type="text" placeholder="MM/DD/YYYY">
+      <mat-datepicker-toggle matSuffix [for]="datePickerFrom"></mat-datepicker-toggle>
+      <mat-datepicker #datePickerFrom></mat-datepicker>
     </mat-form-field>
   </div>
 

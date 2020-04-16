@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
+
 export interface ManagerTable {
   name: string;
   role: string;
@@ -29,8 +30,9 @@ export class ManagerComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  reviewDate: Date;
-  
+  reviewDateTo: Date;
+  reviewDateFrom: Date;
+
   constructor() { }
 
   ngOnInit() {

@@ -103,6 +103,8 @@ button{
     height: 70%;
     width: 75%;
     margin-left: -3%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 4px;
 }
 
 #reviewHoursForm h1{
@@ -147,4 +149,9 @@ button{
     height: 12%;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-   
+
+.mat-table{
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 4px;
+}

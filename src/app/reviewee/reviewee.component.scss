@@ -34,105 +34,148 @@
 
 .amount{
     margin-left: -15%;
-    } 
+} 
 
-    h1{
-        margin:3%;
-    }
+h1{
+    margin:3%;
+}
 
-    p{
-        font-size: 25px;
-    }
+p{
+    font-size: 25px;
+}
 
-    mat-card i{
-        margin-left: 80%;
-    }
+.mat-card i{
+    margin-left: 80%;
+}
 
-    table {
-        position: relative;
-        margin-left: 12%;
-        margin-bottom: 7%;
-        margin-top: 2%;
-        width: 75%;
-    }
+table {
+    position: relative;
+    margin-left: 12%;
+    margin-bottom: 7%;
+    margin-top: 2%;
+    width: 75%;
+}
 
-    .button-row button{
-        background: #80CBC4;
-        width:5%;
-        height:8%;
-        //position: absolute;
-        position: relative;
-        bottom: 5%;
-        right: 5%;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        margin-right: 24px;
-        float: right;
-    }
+button{
+    background: #80CBC4;
+    width:5%;
+    height:8%;
+    position:fixed;
+    z-index: 100;
+    bottom: 4%;
+    right: 5%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
 
-    mat-card-content{
-        margin-left: 0%;
-    }
+.mat-card-content{
+    margin-left: 0%;
+}
 
-    #reviewHoursForm{
-        background:#004d40;
-        height: 45%;
-        width: 40%; 
-        position: absolute; 
-        margin-left: 5%;
-        width: 90%;
-        background-color: #004d40;
-        overflow: hidden;
-    }
+#reviewHoursForm{
+    background:#004d40;
+    height: 45%;
+    width: 40%; 
+    position: absolute; 
+    margin-left: 5%;
+    width: 90%;
+    background-color: #004d40;
+    overflow: hidden;
+}
+
+#hoursFormBox{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    height: 50%;
+    width: 100%;
+    margin-left: 10%;
+    margin-top: 2%;
+
+}
+
+#hoursForm{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    padding: 5%;
+    margin-top: -2%;
+    background: white;
+    height: 70%;
+    width: 75%;
+    margin-left: -3%;
+}
+
+#reviewHoursForm h1{
+    color: white;
+}
+
+
+
+.mat-button{
+   margin-right: 6%;
+   float: left;
+   cursor: pointer;
+   margin-bottom: 4%;
+   width: 12%;
+   position: absolute;
+   height: 12%;
+}
+
+.mat-form-field{
+    margin-left: 0%;
+}
+
+.mat-radio-group{
+    margin-right: 2%;
+}
+
+.dobContain{
+    margin-left: 2%;
+}
+
+.endTime{
+    margin-left: 5%;
+}
+
+.mat-button .feedback{
+    margin-right: 60% !important; 
+    float: left;
+    cursor: pointer;
     
-    #hoursFormBox{
-        display: flex;
-        flex-direction: column;
-        flex:1;
-        height: 50%;
-        width: 100%;
-        margin-left: 10%;
-        margin-top: 2%;
-    
-    }
-    
-    #hoursForm{
-        display: flex;
-        flex-direction: row;
-        flex:1;
-        padding: 5%;
-        margin-top: -2%;
-        background: white;
-        height: 70%;
-        width: 75%;
-        margin-left: -3%;
-    }
-    
-    #reviewHoursForm h1{
-        color: white;
-    }
-    
-    .mat-button{
-       margin-right: 6%;
-       float: left;
-       cursor: pointer;
-       margin-bottom: 4%;
-       width: 12%;
-       position: absolute;
-       height: 12%;
-    }
-    
-    .mat-form-field{
-        margin-left: 0%;
-    }
-    
-    .mat-radio-group{
-        margin-right: 2%;
-    }
-    
-    .dobContain{
-        margin-left: 2%;
-    }
-    
-    .endTime{
-        margin-left: 5%;
-    }
+    margin-bottom: 50%;
+    width: 12%;
+    height: 12%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+   
+
+
+table {
+    // width: 50%;
+    // margin: 0 auto;
+    // border-collapse: collapse;
+
+    position: relative;
+    margin-left: 12%;
+    margin-bottom: 7%;
+    margin-top: 2%;
+    width: 75%;
+  }
+  thead {
+      background-color: #DDD;
+  }
+  
+  td, th {
+    border: 1px solid #DDD;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #c9c9c9;
+  }
+
+  tr:nth-child(even) {
+    background-color: #DDD;
+  }
+

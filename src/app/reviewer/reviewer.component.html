@@ -66,7 +66,7 @@
                 <tbody>
                     <tr *ngFor="let review of reviews">
                         <td>{{review.title}}</td>
-                        <td>{{review.deadline}}</td>
+                        <td>{{review.deadline | date }}</td>
                         <td>{{review.id}}</td>
                         <td>{{review.authorID}}</td>
                         <td><input class='helpButton' type='button' value='Help Wanted'/></td>
@@ -89,7 +89,7 @@
                 <tbody>
                     <tr *ngFor="let review of reviews">
                         <td>{{review.title}}</td>
-                        <td>{{review.deadline}}</td>
+                        <td>{{review.deadline | date }}</td>
                         <td>{{review.id}}</td>
                         <td>{{review.authorID}}</td>
                     </tr>
@@ -112,7 +112,7 @@
                 <tbody>
                     <tr *ngFor="let review of reviews">
                         <td>{{review.title}}</td>
-                        <td>{{review.deadline}}</td>
+                        <td>{{review.deadline | date }}</td>
                         <td>{{review.id}}</td>
                         <td>{{review.authorID}}</td>
                     </tr>

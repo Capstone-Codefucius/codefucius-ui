@@ -24,10 +24,10 @@ export interface AwaitingTable {
   { projectName: 'Bill Smile', dueDate: 'Reviewee', requestTo: "name", author: "name" },
   { projectName: 'Will Desk', dueDate: 'Reviewee', requestTo: "name", author: "name" },
   { projectName: 'Smith Will', dueDate: 'Reviewee', requestTo: "name", author: "name" }
-]; */
-
+];
+ */
 @Component({
-  selector: 'app-reviewee',
+  selector: 'app-reviewer',
   templateUrl: './reviewer.component.html',
   styleUrls: ['./reviewer.component.scss'],
 
@@ -71,43 +71,6 @@ export class ReviewerComponent implements OnInit {
   compNum = 0;
 
 
-
- /*  toggleAwait() {
-    this.isOpenInProg = false;
-    this.isOpenComp = false;
-    this.reviewHours = false;
-    this.reviews = this.awaiting;
-    this.awaitNum = this.reviews.length;
-    document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
-    this.isOpenAwait = !this.isOpenAwait;
-  }
-  toggleInProg() {
-    this.isOpenAwait = false;
-    this.isOpenComp = false;
-    this.reviewHours = false;
-    this.inProgNum = this.reviews.length;
-    this.reviews = this.inprogress;
-
-    document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
-    this.isOpenInProg = !this.isOpenInProg;
-  }
-  toggleComp() {
-    this.isOpenAwait = false;
-    this.isOpenInProg = false;
-    this.reviewHours = false;
-    this.reviews = this.completed;
-
-    this.compNum = this.reviews.length;
-    document.getElementById('compNum').innerHTML = this.compNum.toString();
-    this.isOpenComp = !this.isOpenComp;
-  }
-  toggleReview() {
-    this.isOpenAwait = false;
-    this.isOpenInProg = false;
-    this.isOpenComp = false;
-    this.reviewHours = !this.reviewHours;
-  } */
-
   toggleAwait() {
     this.isOpenInProg = false;
     this.isOpenComp = false;
@@ -116,16 +79,19 @@ export class ReviewerComponent implements OnInit {
 
     this.awaitNum = this.reviews.length;
     document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
+
     this.isOpenAwait = !this.isOpenAwait;
   }
   toggleInProg() {
     this.isOpenAwait = false;
     this.isOpenComp = false;
     this.reviewHours = false;
+    
     this.reviews = this.inprogress;
 
     this.inProgNum = this.reviews.length;
     document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
+    
     this.isOpenInProg = !this.isOpenInProg;
   }
   toggleComp() {
@@ -136,6 +102,7 @@ export class ReviewerComponent implements OnInit {
 
     this.compNum = this.reviews.length;
     document.getElementById('compNum').innerHTML = this.compNum.toString();
+    
     this.isOpenComp = !this.isOpenComp;
   }
   toggleReview() {
@@ -183,6 +150,14 @@ export class ReviewerComponent implements OnInit {
           this.completed.push(this.reviews[i]);
         }
       }
+      this.awaitNum = this.awaiting.length;
+      document.getElementById('awaitNum').innerHTML = this.awaitNum.toString();
+
+      this.inProgNum = this.inprogress.length;
+      document.getElementById('inProgNum').innerHTML = this.inProgNum.toString();
+
+      this.compNum = this.completed.length;
+      document.getElementById('compNum').innerHTML = this.compNum.toString();
     })
   }
 

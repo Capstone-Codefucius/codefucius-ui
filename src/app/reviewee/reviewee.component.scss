@@ -7,6 +7,8 @@
     width: 90%;
     background-color: #004d40;
     overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius:5px;
 }
 
 #cardBox {
@@ -109,8 +111,6 @@ button{
     color: white;
 }
 
-
-
 .mat-button{
    margin-right: 6%;
    float: left;
@@ -148,34 +148,9 @@ button{
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
    
-
-
-table {
-    // width: 50%;
-    // margin: 0 auto;
-    // border-collapse: collapse;
-
-    position: relative;
-    margin-left: 12%;
-    margin-bottom: 7%;
-    margin-top: 2%;
-    width: 75%;
-  }
-  thead {
-      background-color: #DDD;
-  }
-  
-  td, th {
-    border: 1px solid #DDD;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(odd) {
-    background-color: #c9c9c9;
-  }
-
-  tr:nth-child(even) {
-    background-color: #DDD;
-  }
-
+.mat-table{
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 4px;
+}

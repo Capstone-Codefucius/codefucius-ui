@@ -19,13 +19,6 @@ export interface AwaitingTable {
   author: string;
 }
 
-/* const ELEMENT_DATA: AwaitingTable[] = [
-  { projectName: 'Emily McDonald', dueDate: 'Reviewee', requestTo: "name", author: "name" },
-  { projectName: 'Bill Smile', dueDate: 'Reviewee', requestTo: "name", author: "name" },
-  { projectName: 'Will Desk', dueDate: 'Reviewee', requestTo: "name", author: "name" },
-  { projectName: 'Smith Will', dueDate: 'Reviewee', requestTo: "name", author: "name" }
-];
- */
 @Component({
   selector: 'app-reviewer',
   templateUrl: './reviewer.component.html',
@@ -47,10 +40,6 @@ export interface AwaitingTable {
 })
 
 export class ReviewerComponent implements OnInit {
-  displayedColumns: string[] = ['projectName', 'dueDate', 'requestTo', 'author'];
-
-  // dataSource = new MatTableDataSource(ELEMENT_DATA);
-
   reviews: Array<Review>;
   awaiting: Array<Review>;
   inprogress: Array<Review>;

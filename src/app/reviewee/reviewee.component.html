@@ -57,23 +57,23 @@
         <table class="mat-table">
             <thead>
                 <th>Title</th>
-                <th>Deadline</th>
-                <th>Request To</th>
+                <th>Description</th>
                 <th>Author</th>
+                <th>Deadline</th>
             </thead>
-    
+
             <tbody>
                 <tr *ngFor="let review of reviews">
                     <td>{{review.title}}</td>
-                    <td>{{review.deadline | date }}</td>
-                    <td>{{review.id}}</td>
+                    <td>{{review.description}}</td>
                     <td>{{review.authorName}}</td>
+                    <td>{{review.deadline | date }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    
-  </div>
+
+</div>
 
 
 <div id="awaitingChart" [@openClose]="isOpenInProg ? 'open' : 'closed'">
@@ -86,18 +86,18 @@
                 <th>Request To</th>
                 <th>Author</th>
             </thead>
-    
+
             <tbody>
                 <tr *ngFor="let review of reviews">
                     <td>{{review.title}}</td>
-                    <td>{{review.deadline | date }}</td>
-                    <td>{{review.id}}</td>
+                    <td>{{review.description}}</td>
                     <td>{{review.authorName}}</td>
+                    <td>{{review.deadline | date }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    
+
 </div>
 
 <div id="awaitingChart" [@openClose]="isOpenComp ? 'open' : 'closed'">
@@ -110,18 +110,18 @@
                 <th>Request To</th>
                 <th>Author</th>
             </thead>
-    
+
             <tbody>
                 <tr *ngFor="let review of reviews">
                     <td>{{review.title}}</td>
-                    <td>{{review.deadline | date }}</td>
-                    <td>{{review.id}}</td>
+                    <td>{{review.description}}</td>
                     <td>{{review.authorName}}</td>
+                    <td>{{review.deadline | date }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    
+
     <button mat-button class="feedbackButton" (click)="requestOpenFeedback()">Give Feedback</button>
 </div>
 
@@ -164,8 +164,5 @@
         add
     </i>
 </button>
-
-<!-- needs moved into a card -->
-
 
 </html>

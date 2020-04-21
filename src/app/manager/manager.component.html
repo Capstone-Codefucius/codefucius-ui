@@ -6,11 +6,6 @@
     <mat-form-field id="searchBox" appearance="fill">
       <mat-label>Search Data</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John Smith">
-      <!-- <input matInput (keyup)="applyFilter($event)" [(ngModel)]="name" (input)="filterItem(myInput.value)"
-      <md-input #myInput placeholder="Item name..." [(ngModel)]="name" (input)="filterItem(myInput.value)"></md-input>
-      <div *ngFor="let user of users">
-        {{user.name}}
-      </div>  -->
     </mat-form-field>
 
     <mat-form-field id="reviewDateFrom" appearance="fill">
@@ -76,12 +71,16 @@
     </div>
 
     <div id="graph">
-      <!-- <div *ngFor="let user of users"> -->
-        <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="users" [xAxis]="showXAxis" [yAxis]="showYAxis"
-          [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel">
-        </ngx-charts-bar-vertical>
-      <!-- </div> -->
+      <ngx-charts-bar-vertical 
+      [scheme]="colorScheme" 
+      [results]="ELEMENT_DATA" 
+      [xAxis]="showXAxis" 
+      [yAxis]="showYAxis"
+      [showXAxisLabel]="showXAxisLabel" 
+      [showYAxisLabel]="showYAxisLabel" 
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel">
+      </ngx-charts-bar-vertical>
     </div>
   </div>
 

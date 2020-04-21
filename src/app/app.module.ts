@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { RequestComponent } from './code-request/code-request.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-//custom class made for material
 import { MaterialModule } from './material';
 import { ReviewService } from './services/review/review.service';
 import { UserService } from './services/user/user.service';

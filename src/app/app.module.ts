@@ -13,11 +13,12 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 import { RequestComponent } from './code-request/code-request.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//custom class made for material
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MaterialModule } from './material';
 import { ReviewService } from './services/review/review.service';
 import { UserService } from './services/user/user.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     NavComponent,
     FeedbackComponent,
     RequestComponent,
+    NotFoundComponent,
     
 
   ],
@@ -40,7 +42,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [ReviewService, UserService],
   bootstrap: [AppComponent],

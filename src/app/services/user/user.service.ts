@@ -8,9 +8,10 @@ import { User } from '../../services/user/user';
 })
 export class UserService {
   public API = 'http://localhost:5000/api';  //make sure uncommented for GitHub
-  //public API = 'https://localhost:44363/api'; //for Kristi's env local only
+  //public API = 'https://localhost:44363/api'; 
 
   public CODEFUCIUS_API = `${this.API}/user`;
+  filter: string;
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<User[]> {

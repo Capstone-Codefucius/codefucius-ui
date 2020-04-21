@@ -19,6 +19,7 @@ import { MaterialModule } from './material';
 import { ReviewService } from './services/review/review.service';
 import { UserService } from './services/user/user.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     NavComponent,
     FeedbackComponent,
     RequestComponent,
+    NotFoundComponent,
     
 
   ],

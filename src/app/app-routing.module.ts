@@ -8,7 +8,7 @@ import { RevieweeComponent} from './reviewee/reviewee.component';
 import { ReviewerComponent } from './reviewer/reviewer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { RequestComponent } from './code-request/code-request.component';
-
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,6 +18,8 @@ const routes: Routes = [
   { path: 'reviewer', component: ReviewerComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'request', component: RequestComponent },
+  { path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 
 ];
 

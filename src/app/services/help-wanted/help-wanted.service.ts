@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Review } from '../services/review/review';
+import { Review } from '../review/review';
 
 
 @Injectable({
@@ -12,7 +12,7 @@ import { Review } from '../services/review/review';
 
 export class HelpWantedService {
   public API = 'http://localhost:5000/api';  //make sure uncommented for GitHub
-  //public API = 'https://localhost:44363/api'; //for Kristi's env local only
+  //public API = 'https://localhost:44363/api'; //for 's env local only
 
   public CODEFUCIUS_API = `${this.API}/reviews`;
   constructor(private http: HttpClient) { }

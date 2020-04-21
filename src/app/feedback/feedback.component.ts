@@ -8,14 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  // binding
   reviewername: string;
   reviewDate: Date;
   question1: number;
-
-  /*constructor() { 
-    this.reviewername = "test2"
-  }*/
 
   ngOnInit(): void {
   }

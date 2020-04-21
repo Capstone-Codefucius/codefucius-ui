@@ -69,7 +69,7 @@
                         <td>{{review.description}}</td>
                         <td>{{review.authorName}}</td>
                         <td>{{review.deadline | date }}</td>
-                        <td><input class='helpButton' type='button' value='Help Wanted'/></td>
+                        <td><input class='helpButton' type='button' value='Help Wanted' (click)="changeStatus()"/></td>
                     </tr>
                 </tbody>
             </table>

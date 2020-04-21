@@ -23,6 +23,7 @@ export interface AwaitingTable {
   selector: 'app-reviewer',
   templateUrl: './reviewer.component.html',
   styleUrls: ['./reviewer.component.scss'],
+  providers: [ReviewService],
 
   animations: [
     trigger('openClose', [
@@ -44,6 +45,7 @@ export class ReviewerComponent implements OnInit {
   awaiting: Array<Review>;
   inprogress: Array<Review>;
   completed: Array<Review>;
+  change: Review;
 
   reviewername: string;
   reviewDate: Date;
@@ -71,6 +73,7 @@ export class ReviewerComponent implements OnInit {
 
     this.isOpenAwait = !this.isOpenAwait;
   }
+
   toggleInProg() {
     this.isOpenAwait = false;
     this.isOpenComp = false;
@@ -83,6 +86,7 @@ export class ReviewerComponent implements OnInit {
     
     this.isOpenInProg = !this.isOpenInProg;
   }
+
   toggleComp() {
     this.isOpenAwait = false;
     this.isOpenInProg = false;
@@ -94,6 +98,7 @@ export class ReviewerComponent implements OnInit {
     
     this.isOpenComp = !this.isOpenComp;
   }
+
   toggleReview() {
     this.isOpenAwait = false;
     this.isOpenInProg = false;
@@ -101,6 +106,12 @@ export class ReviewerComponent implements OnInit {
     this.reviewHours = !this.reviewHours;
   }
 
+  changeStatus(){
+    this.change.status = 'In-progress';
+    this.ReviewService.updateStatus(this. change).subscribe(res => {
+      this.change.status = 'In-progress';
+    });
+  }
 
   constructor(public dialog: MatDialog, private ReviewService: ReviewService) { }
 
